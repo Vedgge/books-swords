@@ -1,0 +1,11 @@
+{
+  "name": "library-cac-node",
+  "version": "1.0.0",
+  "description": "library project for Codo a Codo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
