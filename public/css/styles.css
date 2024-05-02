@@ -7,7 +7,12 @@ body {
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: bold;
   margin-top: 0;
 }
@@ -17,7 +22,7 @@ p {
 }
 
 a {
-  color: #007bff;
+  color: black;
   text-decoration: none;
 }
 
@@ -25,7 +30,8 @@ a:hover {
   text-decoration: underline;
 }
 
-ul, ol {
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style-position: inside;
@@ -34,12 +40,6 @@ ul, ol {
 /* Modelo de caja y posicionamiento */
 * {
   box-sizing: border-box;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
 }
 
 .relative {
@@ -51,15 +51,15 @@ ul, ol {
 }
 
 /* Tipografía */
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 /* Colores y variables */
 :root {
-  --primary-color: #007bff;
+  --primary-color: #031830;
   --secondary-color: #6c757d;
   --light-color: #f8f9fa;
   --dark-color: #343a40;
@@ -117,10 +117,10 @@ textarea {
 }
 
 .col {
-    display: flex;
-    flex-direction: column;
-    padding-left: 15px;
-    padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .col-6 {
@@ -131,7 +131,101 @@ textarea {
 /* Custom CSS */
 
 .container-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+  max-width: 1440px;
+  margin: 0 auto;
 }
+
+.container-novedades {
+  width: 100%;
+  height: 700px;
+  background: url("/public//images/Quote-A2_A_Short_Walk_Through_a_Wide_World_04_02_24.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.lista-generos {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.lista-generos li {
+  cursor: pointer;
+  padding: 12px 0 12px 0;
+}
+
+.lista-generos li:hover {
+  color: var(--primary-color);
+}
+
+.more-features {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.more-features > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+
+.more-features > a > img {
+  width: 90px;
+  height: auto;
+  color: black;
+}
+
+.img-background-book {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(/public/images/BB-B\_Post-Holday-Sales\_01-25D.jpg) no-repeat center;
+}
+
+.container-book-showcase {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "book-1 book-1 book-2 book-3 book-4"
+    "book-1 book-1 book-5 book-6 book-7";
+}
+
+.container-book-showcase > div {
+  background-color: red;
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.book-1 { grid-area: book-1; }
+
+.book-2 { grid-area: book-2; }
+
+.book-3 { grid-area: book-3; }
+
+.book-4 { grid-area: book-4; }
+
+.book-5 { grid-area: book-5; }
+
+.book-6 { grid-area: book-6; }
+
+.book-7 { grid-area: book-7; }
