@@ -128,20 +128,9 @@ textarea {
   max-width: 50%;
 }
 
-/* Custom CSS */
-
 .container-main {
   max-width: 1440px;
   margin: 0 auto;
-}
-
-.container-novedades {
-  width: 100%;
-  height: 700px;
-  background: url("/public//images/Quote-A2_A_Short_Walk_Through_a_Wide_World_04_02_24.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .navbar {
@@ -149,100 +138,6 @@ textarea {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
-}
-
-.lista-generos {
-  display: flex;
-  gap: 40px;
-  list-style: none;
-  width: 100%;
-  justify-content: space-between;
-  font-size: 17px;
-  font-weight: 500;
-}
-
-.lista-generos li {
-  cursor: pointer;
-  padding: 12px 0 12px 0;
-}
-
-.lista-generos li:hover {
-  color: var(--primary-color);
-}
-
-.more-features {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
-}
-
-.more-features > a {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-}
-
-.more-features > a > img {
-  width: 90px;
-  height: auto;
-  color: black;
-}
-
-.img-background-book {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: url(/public/images/BB-B\_Post-Holday-Sales\_01-25D.jpg) no-repeat
-    center;
-}
-
-.container-book-showcase {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 10px 10px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "book-1 book-1 book-2 book-3 book-4"
-    "book-1 book-1 book-5 book-6 book-7";
-}
-
-.container-book-showcase > div {
-  background-color: red;
-  text-align: center;
-  padding: 20px;
-  font-size: 30px;
-}
-
-.book-1 {
-  grid-area: book-1;
-}
-
-.book-2 {
-  grid-area: book-2;
-}
-
-.book-3 {
-  grid-area: book-3;
-}
-
-.book-4 {
-  grid-area: book-4;
-}
-
-.book-5 {
-  grid-area: book-5;
-}
-
-.book-6 {
-  grid-area: book-6;
-}
-
-.book-7 {
-  grid-area: book-7;
 }
 
 footer {
