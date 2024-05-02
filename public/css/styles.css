@@ -185,7 +185,6 @@ textarea {
   gap: 6px;
 }
 
-
 .more-features > a > img {
   width: 90px;
   height: auto;
@@ -196,10 +195,12 @@ textarea {
   display: block;
   width: 100%;
   height: 100%;
-  background: url(/public/images/BB-B\_Post-Holday-Sales\_01-25D.jpg) no-repeat center;
+  background: url(/public/images/BB-B\_Post-Holday-Sales\_01-25D.jpg) no-repeat
+    center;
 }
 
-.container-book-showcase {  display: grid;
+.container-book-showcase {
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 10px 10px;
@@ -216,16 +217,41 @@ textarea {
   font-size: 30px;
 }
 
-.book-1 { grid-area: book-1; }
+.book-1 {
+  grid-area: book-1;
+}
 
-.book-2 { grid-area: book-2; }
+.book-2 {
+  grid-area: book-2;
+}
 
-.book-3 { grid-area: book-3; }
+.book-3 {
+  grid-area: book-3;
+}
 
-.book-4 { grid-area: book-4; }
+.book-4 {
+  grid-area: book-4;
+}
 
-.book-5 { grid-area: book-5; }
+.book-5 {
+  grid-area: book-5;
+}
 
-.book-6 { grid-area: book-6; }
+.book-6 {
+  grid-area: book-6;
+}
 
-.book-7 { grid-area: book-7; }
+.book-7 {
+  grid-area: book-7;
+}
+
+footer {
+  background-color: var(--primary-color);
+  height: 300px;
+  width: 100%;
+  border-top: 1px solid #ddd;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 70px;
+}
