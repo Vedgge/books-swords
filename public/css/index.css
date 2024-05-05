@@ -1,4 +1,9 @@
-/* height: 700px; */
+:root {
+  --primary-color: #031830;
+  --secondary-color: #6c757d;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+}
 
 .slider-wrapper {
   width: 100%;
@@ -6,6 +11,7 @@
   overflow: hidden;
   height: 700px;
 }
+
 .slides-container {
   height: 100%;
   width: 100%;
@@ -16,6 +22,7 @@
   overflow: scroll;
   scroll-behavior: smooth;
 }
+
 .slide {
   width: 100%;
   height: 100%;
@@ -24,12 +31,12 @@
 
 .slides-container {
   scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  -ms-overflow-style: none; /* IE and Edge */
 }
-/* WebKit */
+
+/* Chrome, Safari and Opera */
 .slides-container::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+  display: none;
 }
 
 .slide-arrow {
@@ -48,52 +55,41 @@
   opacity: 0.5;
   transition: opacity 100ms;
 }
+
 .slide-arrow:hover,
 .slide-arrow:focus {
   opacity: 1;
 }
+
 #slide-arrow-prev {
   left: 0;
   padding-left: 0.25rem;
   border-radius: 0 2rem 2rem 0;
 }
+
 #slide-arrow-next {
   right: 0;
   padding-left: 0.75rem;
   border-radius: 2rem 0 0 2rem;
 }
+
 .slide-1 {
-    background: url(/public/images/Quote-A2_A_Short_Walk_Through_a_Wide_World_04_02_24.jpg) no-repeat center;
+  background: url(/public/images/Quote-A2_A_Short_Walk_Through_a_Wide_World_04_02_24.jpg)
+    no-repeat center;
 }
+
 .slide-2 {
-    background: url(/public/images/Quote-A3_Your_Blood_04_02_24.jpg) no-repeat center;
+  background: url(/public/images/Quote-A3_Your_Blood_04_02_24.jpg) no-repeat
+    center;
 }
 
 .slide-3 {
-    background: url(/public/images/Quote_A3_Bone_Shard_War_04-18.jpg) no-repeat center;
+  background: url(/public/images/Quote_A3_Bone_Shard_War_04-18.jpg) no-repeat
+    center;
 }
 
 .slide-4 {
-    background: url(/public/images/Quote_A3_Sisters-of-the-Lost-Nation_03-28.jpg);
-}
-
-.lista-generos {
-  display: flex;
-  gap: 40px;
-  list-style: none;
-  width: 100%;
-  justify-content: space-between;
-  font-size: 17px;
-  font-weight: 500;
-}
-
-.lista-generos li {
-  cursor: pointer;
-  padding: 12px 0 12px 0;
-}
-
-.lista-generos li:hover {
-  color: var(--primary-color);
+  background: url(/public/images/Quote_A3_Sisters-of-the-Lost-Nation_03-28.jpg);
 }
 
 .more-features {
@@ -117,8 +113,106 @@
   color: black;
 }
 
+.slider-bookshowcase-container,
+.slider-blog-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.slider-view-bookshowcase,
+.slider-blog-view {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.25s ease-in;
+}
+
+.slider-view-bookshowcase .book-list-slider,
+.slider-blog-view .blog-list-slider {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  gap: 48px;
+  scroll-behavior: smooth;
+  transition: all 0.25s ease-in;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+}
+
+/* Chrome, Safari and Opera */
+.book-list-slider::-webkit-scrollbar,
+.blog-list-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.prev-btn,
+.next-btn {
+  position: relative;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 23px;
+  transition: all 0.3s ease-in-out;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background-color: #ddd;
+}
+
+.book-slider {
+  scroll-snap-align: center;
+  min-width: 225px;
+  height: 342px;
+  background-color: red;
+  border-radius: 8px;
+}
+
+.blog-slider {
+  scroll-snap-align: center;
+  min-width: 445px;
+  height: 342px;
+  background-color: red;
+  border-radius: 8px;
+}
+
+.container-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.dot-pagination {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+  background-color: #bbb;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot-pagination.active {
+  background-color: #333;
+}
+
 .img-background-book {
   display: block;
+  border-radius: 8px;
   width: 100%;
   height: 100%;
   background: url(/public/images/BB-B\_Post-Holday-Sales\_01-25D.jpg) no-repeat
@@ -129,14 +223,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 10px 10px;
+  gap: 30px 30px;
   grid-auto-flow: row;
   grid-template-areas:
     "book-1 book-1 book-2 book-3 book-4"
     "book-1 book-1 book-5 book-6 book-7";
 }
 
-.container-book-showcase > div {
+.container-book-showcase > a {
+  border-radius: 8px;
   background-color: red;
   text-align: center;
   padding: 20px;

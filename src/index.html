@@ -12,7 +12,7 @@
 
   <!-- Scripts -->
   <script src="/public/js/main.js" defer></script>
-<script src="https://kit.fontawesome.com/1858177878.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/1858177878.js" crossorigin="anonymous"></script>
 
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" />
@@ -28,19 +28,27 @@
 <body class="text-center mt-1">
   <header>
     <nav class="container-main navbar">
-      <a href="#"><img src="/public//images/icon-books-swords.png" alt="" style="width: 350px" /></a>
-      <div style="width: 700px; height: 45px;">
-        <input type="text" placeholder="Search" style="width: 100%; height: 100%;" />
+      <a href="#"><img src="/public/images/icon-books-swords.png" alt="" style="width: 350px" /></a>
+      <div style="width: 100%; height: 45px; margin: 0 50px; display: flex;">
+        <input type="text" placeholder="Search by title, author, genre or ISBN" style="width: 100%; height: 100%; border-radius: 0px;" />
+        <button style="border-radius: 0px;">Buscar</button>
       </div>
-      <div style="display: flex; gap: 30px; font-size:x-large; color: var(--primary-color);">
-        <a href="#"><i class="fa-solid fa-heart"></i></a>
-        <a href="#"><i class="fa-solid fa-user"></i></a>
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+      <div class="nav-links-user">
+        
+        <div style="position: relative; cursor: pointer; user-select: none;" id="menu-wishlist"><i class="fa-solid fa-heart"></i><span>Favoritos</span>
+        <div style="position: absolute; z-index: 99; background-color: rebeccapurple; top: 100%; left: 0; width: 250px; height: 300px; display: none;" id="menu-wishlist-content">
+        </div></div>
+        <div style="position: relative; cursor: pointer; user-select: none;" id="menu-user"><i class="fa-solid fa-user"></i><span>cuenta</span>
+        <div style="position: absolute; z-index: 99; background-color: red; top: 100%; left: 0; width: 250px; height: 300px; display: none;" id="menu-user-content">
+        </div></div>
+        <div style="position: relative; cursor: pointer; user-select: none;" id="menu-cart"><i class="fa-solid fa-cart-shopping"></i><span>Carrito</span>
+        <div style="position: absolute; z-index: 99; background-color: blue; top: 100%; left: 0; width: 250px; height: 300px; display: none;" id="menu-cart-content">
+        </div></div>
       </div>
     </nav>
-    <div class="container-main" style="display: flex; align-items: center; border-top: 1px solid #ddd">
-      <ul class="lista-generos">
-        <li><a href="#">Non-Fiction</a></li>
+    <div class="container-main genre-list-container" style="position: relative;">
+      <ul class="genre-list">
+        <li><div id="menu-all-genre" style="user-select: none; cursor: pointer;">Todos los géneros</div></li>
         <li><a href="#">Fantasia</a></li>
         <li><a href="#">Novela</a></li>
         <li><a href="#">Ciencia Ficcion</a></li>
@@ -48,33 +56,36 @@
         <li><a href="#">Adultos</a></li>
         <li><a href="#">Histórico</a></li>
         <li><a href="#">Bibliografías</a></li>
-        <li><a href="#">Comics</a></li>
         <li><a href="#">Infantiles</a></li>
         <li><a href="#">Comic</a></li>
         <li><a href="#">Manga</a></li>
       </ul>
+      <div style="width: 1000px; height: 1000px; position: absolute; z-index: 99; background-color: rebeccapurple; top: 100%; left: 0; display: none;" class="all-genres" id="menu-all-genre-content">
+        <ul>
+          <li></li>
+        </ul>
+      </div>
     </div>
   </header>
   <main>
-    <!-- Boiler plate sections -->
     <section class="slider-wrapper">
-  <button class="slide-arrow" id="slide-arrow-prev" style="z-index: 99; color: black;">
-    &#8249;
-  </button>
-  
-  <button class="slide-arrow" id="slide-arrow-next" style="z-index: 99; color: black;">
-    &#8250;
-  </button>
-  
-  <ul class="slides-container" id="slides-container">
-    <a href="" class="slide slide-1"></a>
-    <a href="" class="slide slide-2"></a>
-    <a href="" class="slide slide-3"></a>
-    <a href="" class="slide slide-4"></a>
-  </ul>
-</section>
-    <section style="background-color: #e0dbd0" class="mb-1">
-      <div class="container-main more-features" style="text-transform: uppercase;">
+      <button class="slide-arrow" id="slide-arrow-prev" style="z-index: 99; color: black;">
+        &#8249;
+      </button>
+
+      <button class="slide-arrow" id="slide-arrow-next" style="z-index: 99; color: black;">
+        &#8250;
+      </button>
+
+      <ul class="slides-container" id="slides-container">
+        <a href="" class="slide slide-1"></a>
+        <a href="" class="slide slide-2"></a>
+        <a href="" class="slide slide-3"></a>
+        <a href="" class="slide slide-4"></a>
+      </ul>
+    </section>
+    <section class="mb-1">
+      <div class="container-main more-features" style="text-transform: uppercase; border-bottom: 1px solid #ddd;">
         <a href="">
           <img src="/public/images/bestsellers-icon.png" alt="" />
           <span>Bestsellers</span>
@@ -105,9 +116,27 @@
       <div class="container-main"
         style="display: flex; flex-direction: column; justify-content: flex-start !important; align-items: baseline; margin-top: 70px;">
         <h2>Libros en tendencia #BookTok</h2>
-        <div>
-          carrusel
+        <div class="slider-bookshowcase-container">
+          <div class="slider-view-bookshowcase">
+            <button id="prev-btn" class="prev-btn">
+              &#8249;
+            </button>
+            <div id="book-list-slider" class="book-list-slider">
+              <a href="#" id="book-slider" class="book-slider"></a>
+              <a href="#" id="book-slider" class="book-slider"></a>
+              <a href="#" id="book-slider" class="book-slider"></a>
+              <a href="#" id="book-slider" class="book-slider"></a>
+              <a href="#" id="book-slider" class="book-slider"></a>
+              <a href="#" id="book-slider" class="book-slider"></a>
+              <a href="#" id="book-slider" class="book-slider"></a>
+              <a href="#" id="book-slider" class="book-slider"></a>              
+            </div>
+            <button id="next-btn" class="next-btn">
+              &#8250;
+            </button>
+          </div>
         </div>
+      </div>
       </div>
     </section>
     <section>
@@ -118,40 +147,93 @@
     </section>
     <section>
       <div class="container-main container-book-showcase" style="height: 750px; margin-top: 70px;">
-        <div class="book-1"></div>
-        <div class="book-2"></div>
-        <div class="book-3"></div>
-        <div class="book-4"></div>
-        <div class="book-5"></div>
-        <div class="book-6"></div>
-        <div class="book-7"></div>
+        <a href="#" class="book-1"></a>
+        <a href="#" class="book-2"></a>
+        <a href="#" class="book-3"></a>
+        <a href="#" class="book-4"></a>
+        <a href="#" class="book-5"></a>
+        <a href="#" class="book-6"></a>
+        <a href="#" class="book-7"></a>
       </div>
     </section>
-    <section>
-      <div class="container-main"
-        style="display: flex; flex-direction: column; justify-content: flex-start !important; align-items: baseline; margin-top: 70px;">
-        <h2>Nuevos Lanzamientos para Jovenes Lectores</h2>
-        <div>
-          carrusel
+<!-- Nuevos Lanzamientos para Jovenes Lectores -->
+<section>
+  <div class="container-main" style="display: flex; flex-direction: column; justify-content: flex-start !important; align-items: baseline; margin-top: 70px;">
+    <h2>Nuevos Lanzamientos para Jovenes Lectores</h2>
+    <div class="slider-bookshowcase-container">
+      <div class="slider-view-bookshowcase">
+        <button id="prev-btn-nuevos" class="prev-btn">
+          &#8249;
+        </button>
+        <div id="book-list-slider-nuevos" class="book-list-slider">
+          <a href="#" class="book-slider"></a>
+          <a href="#" class="book-slider"></a>
+          <a href="#" class="book-slider"></a>
+          <a href="#" class="book-slider"></a>
+          <a href="#" class="book-slider"></a>
+          <a href="#" class="book-slider"></a>
+          <a href="#" class="book-slider"></a>
+          <a href="#" class="book-slider"></a>
         </div>
+        <button id="next-btn-nuevos" class="next-btn">
+          &#8250;
+        </button>
       </div>
-    </section>
-          <section>
-        <div class="container-main" style="display: flex; flex-direction: column; justify-content: flex-start !important; align-items: baseline; margin-top: 70px;">
-          <h2>S&B Top 100</h2>
-          <div>
-            carrusel
-          </div>
+    </div>
+  </div>
+</section>
+<!-- B&S Top 100 -->
+<section>
+  <div class="container-main" style="display: flex; flex-direction: column; justify-content: flex-start !important; align-items: baseline; margin-top: 70px;">
+    <h2>B&S Top 100</h2>
+    <div class="slider-bookshowcase-container">
+      <div class="slider-view-bookshowcase">
+        <button id="prev-btn-top100" class="prev-btn">
+          &#8249;
+        </button>
+        <div id="book-list-slider-top100" class="book-list-slider">
+          <a href="#" class="book-slider"></a>
+          <a href="#" class="book-slider"></a>
+          <a href="#" class="book-slider"></a>
+          <a href="#" class="book-slider"></a>
+          <a href="#" class="book-slider"></a>
+          <a href="#" class="book-slider"></a>
+          <a href="#" class="book-slider"></a>
         </div>
-      </section>
-            <section>
-        <div class="container-main" style="display: flex; flex-direction: column; justify-content: flex-start !important; align-items: baseline; margin-top: 70px;">
-          <h2>Blog</h2>
-          <div>
-            carrusel
-          </div>
+        <button id="next-btn-top100" class="next-btn">
+          &#8250;
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+   <!-- Blog -->
+<section>
+  <div class="container-main" style="display: flex; flex-direction: column; justify-content: flex-start !important; align-items: baseline; margin-top: 70px;">
+    <h2>Blog</h2>
+    <div class="slider-blog-container">
+      <div class="slider-blog-view" style="display: flex; flex-direction: column;">
+        <div id="blog-list-slider" class="blog-list-slider">
+          <a href="#" class="blog-slider"></a>
+          <a href="#" class="blog-slider"></a>
+          <a href="#" class="blog-slider"></a>
+          <a href="#" class="blog-slider"></a>
+          <a href="#" class="blog-slider"></a>
+          <a href="#" class="blog-slider"></a>
+          <a href="#" class="blog-slider"></a>
+          <a href="#" class="blog-slider"></a>
         </div>
-      </section>
+        <div style="display: flex; gap: 1rem;"><button id="prev-btn-blog" class="prev-btn">
+          &#8249;
+        </button>
+        <div class="container-pagination"></div>
+        <button id="next-btn-blog" class="next-btn">
+          &#8250;
+        </button></div>
+      </div>
+    </div>
+  </div>
+</section>
   </main>
   <footer>
     <p>Copyright 2023 Libreria CAC</p>

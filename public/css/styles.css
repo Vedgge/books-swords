@@ -133,11 +133,59 @@ textarea {
   margin: 0 auto;
 }
 
+/* Estilos específicos */
+
+.nav-links-user div:hover {
+  text-decoration: none;
+}
+
+.nav-links-user div span:hover {
+  text-decoration: underline;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
+}
+
+.nav-links-user {
+  display: flex;
+  gap: 30px;
+  font-size: 20px;
+}
+
+.nav-links-user div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+}
+
+.genre-list-container {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ddd;
+}
+
+.genre-list {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.genre-list li {
+  cursor: pointer;
+  padding: 12px 0 12px 0;
+}
+
+.genre-list li:hover {
+  color: var(--primary-color);
 }
 
 footer {
