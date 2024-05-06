@@ -35,8 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttonWishlist = document.getElementById("menu-wishlist");
   const buttonUser = document.getElementById("menu-user");
   const buttonCart = document.getElementById("menu-cart");
-  const buttonAllGenre = document.getElementById("menu-all-genre");
-  const menuAllGenre = document.getElementById("menu-all-genre-content");
+  const buttonAllGenre = document.getElementById("menu-all-filters-header");
+  const menuAllGenre = document.getElementById(
+    "menu-all-filters-header-content"
+  );
   const menuWishlist = document.getElementById("menu-wishlist-content");
   const menuUser = document.getElementById("menu-user-content");
   const menuCart = document.getElementById("menu-cart-content");
@@ -104,10 +106,10 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", function (event) {
     const target = event.target;
     const isMenuButton = target.closest(
-      "#menu-wishlist, #menu-user, #menu-cart, #menu-all-genre"
+      "#menu-wishlist, #menu-user, #menu-cart, #menu-all-filters-header"
     );
     const isMenuContent = target.closest(
-      "#menu-wishlist-content, #menu-user-content, #menu-cart-content, #menu-all-genre-content"
+      "#menu-wishlist-content, #menu-user-content, #menu-cart-content, #menu-all-filters-header-content"
     );
 
     // Si el clic no fue en un botón de menú ni en su contenido, cerrar todos los menús
@@ -124,6 +126,70 @@ document.addEventListener("DOMContentLoaded", function () {
   closeButton.addEventListener("click", function () {
     filterContainer.style.display = "none";
   });
+
+  // Iniciar sesión - Registrarse
+
+  const passwordVisibilityButton = document.getElementById(
+    "togglePasswordButton"
+  );
+  const closeButtonLogin = document.getElementById("close-button-login");
+  const closeButtonRegister = document.getElementById("close-button-register");
+  const toggleRegisterButton = document.getElementById(
+    "toggle-register-button"
+  );
+  const toggleRegisterPopup = document.getElementById("toggle-signup-popup");
+  const toggleLoginButton = document.getElementById("toggle-login-popup");
+
+  toggleRegisterPopup.addEventListener("click", function () {
+    if ((document.getElementById("login-container").style.display = "block")) {
+      document.getElementById("login-container").style.display = "none";
+    } else {
+      console.log("login container is not visible");
+    }
+    document.getElementById("register-container").style.display = "block";
+  });
+
+  toggleLoginButton.addEventListener("click", function () {
+    if((document.getElementById("register-container").style.display = "block")) {
+      document.getElementById("register-container").style.display = "none";
+    }
+    document.getElementById("login-container").style.display = "block";
+  });
+
+  closeButtonLogin.addEventListener("click", function () {
+    document.getElementById("login-container").style.display = "none";
+  });
+
+  closeButtonRegister.addEventListener("click", function () {
+    document.getElementById("register-container").style.display = "none";
+  });
+
+  toggleRegisterButton.addEventListener("click", function () {
+    console.log("toggle register clicked");
+    if ((document.getElementById("login-container").style.display = "block")) {
+      document.getElementById("login-container").style.display = "none";
+    } else {
+      console.log("login container is not visible");
+    }
+    document.getElementById("register-container").style.display = "block";
+  });
+
+  passwordVisibilityButton.addEventListener("click", togglePasswordVisibility);
+
+  function togglePasswordVisibility() {
+    let passwordInput = document.getElementById("passwordInput");
+    let toggleIcon = document.getElementById("toggleIcon");
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      toggleIcon.classList.remove("fa-eye");
+      toggleIcon.classList.add("fa-eye-slash");
+    } else {
+      passwordInput.type = "password";
+      toggleIcon.classList.remove("fa-eye-slash");
+      toggleIcon.classList.add("fa-eye");
+    }
+  }
 
   // Booktok carrusel
   const prev = document.getElementById("prev-btn");

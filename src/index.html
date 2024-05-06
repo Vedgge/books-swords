@@ -28,8 +28,312 @@
     />
   </head>
 
-  <body class="text-center">
+  <body class="text-center relative">
     <header style="box-shadow: 10px 5px 5px rgba(10, 10, 10, 0.055)">
+      <div
+        style="
+          position: absolute;
+          top: 50vh;
+          width: 500px;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 9999999;
+          background: white;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          display: none;
+          box-shadow: 10px 5px 5px rgba(10, 10, 10, 0.055);
+        "
+        id="login-container"
+      >
+        <div style="padding: 50px; position: relative">
+          <button
+            style="
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 50px;
+              height: 50px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: black;
+              background: transparent;
+              border: none;
+              font-size: 20px;
+            "
+            id="close-button-login"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <h1>Iniciar sesión</h1>
+          <form
+            action="
+    "
+          >
+            <div style="display: flex; flex-direction: column; gap: 1.25rem">
+              <input
+                type="email"
+                placeholder="Ingrese su correo electrónico"
+                required
+                style="height: 2.75rem"
+              />
+              <div style="position: relative">
+                <input
+                  type="password"
+                  placeholder="Ingrese su contraseña"
+                  required
+                  style="height: 2.75rem; width: 100%"
+                  id="passwordInput"
+                />
+                <button
+                  type="button"
+                  id="togglePasswordButton"
+                  style="
+                    position: absolute;
+                    top: 50%;
+                    right: 0%;
+                    transform: translateY(-50%);
+                    background: transparent;
+                    border: none;
+                    color: #666;
+                  "
+                >
+                  <i id="toggleIcon" class="fa-solid fa-eye"></i>
+                </button>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <label for="remember"
+                  ><input
+                    type="checkbox"
+                    name="remember"
+                    id="remember"
+                    style="margin-right: 5px"
+                  />Recordarme</label
+                >
+                <a href="#">¿Olvidaste tu contraseña?</a>
+              </div>
+              <button
+                style="
+                  font-size: 16px;
+                  text-transform: uppercase;
+                  font-weight: semibold;
+                "
+              >
+                Iniciar sesión
+              </button>
+            </div>
+          </form>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              margin-top: 10px;
+            "
+          >
+            <button
+              style="
+                background: white;
+                border: 1px solid #000000;
+                color: black;
+                font-size: 16px;
+                text-transform: uppercase;
+                font-weight: semibold;
+              "
+              id="toggle-register-button"
+            >
+              Crear una cuenta
+            </button>
+            <p style="color: #666; font-size: 14px">
+              Al iniciar sesión, usted acepta nuestros
+              <a href="#">Términos de Uso</a> y nuestra
+              <a href="#">Política de Privacidad</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          position: absolute;
+          top: 50vh;
+          width: 500px;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 999999;
+          background: white;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          display: none;
+          box-shadow: 10px 5px 5px rgba(10, 10, 10, 0.055);
+        "
+        id="register-container"
+      >
+        <div style="padding: 50px; position: relative">
+          <button
+            style="
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 50px;
+              height: 50px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: black;
+              background: transparent;
+              border: none;
+              font-size: 20px;
+            "
+            id="close-button-register"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <h1>Registrarse</h1>
+          <form
+            action="
+    "
+          >
+            <div style="display: flex; flex-direction: column; gap: 1.25rem">
+              <input
+                type="text"
+                placeholder="Ingrese su nombre y apellido"
+                required
+                style="height: 2.75rem"
+              />
+              <input
+                type="email"
+                placeholder="Ingrese su correo electrónico"
+                required
+                style="height: 2.75rem"
+              />
+              <div style="position: relative">
+                <input
+                  type="password"
+                  placeholder="Ingrese su contraseña"
+                  required
+                  style="height: 2.75rem; width: 100%"
+                  id="passwordInput"
+                />
+                <button
+                  type="button"
+                  id="togglePasswordButton"
+                  style="
+                    position: absolute;
+                    top: 50%;
+                    right: 0%;
+                    transform: translateY(-50%);
+                    background: transparent;
+                    border: none;
+                    color: #666;
+                  "
+                >
+                  <i id="toggleIcon" class="fa-solid fa-eye"></i>
+                </button>
+              </div>
+              <div style="position: relative">
+                <input
+                  type="password"
+                  placeholder="Confirme su contraseña"
+                  required
+                  style="height: 2.75rem; width: 100%"
+                  id="passwordInput"
+                />
+                <button
+                  type="button"
+                  id="togglePasswordButton"
+                  style="
+                    position: absolute;
+                    top: 50%;
+                    right: 0%;
+                    transform: translateY(-50%);
+                    background: transparent;
+                    border: none;
+                    color: #666;
+                  "
+                >
+                  <i id="toggleIcon" class="fa-solid fa-eye"></i>
+                </button>
+              </div>
+              <select
+                name="security questions"
+                id="securityQuestions"
+                style="height: 2.75rem; width: 100%"
+              >
+                <option value="" disabled selected>
+                  Pregunta de seguridad
+                </option>
+                <option value="question1">
+                  ¿Cuál es el nombre de tu primer mascota?
+                </option>
+                <option value="question2">¿Cuál es tu comida favorita?</option>
+                <option value="question3">¿Cuál es tu color favorito?</option>
+                <option value="question4">¿En qué país nació tu mamá?</option>
+                <option value="question5">¿Cuál es tu libro favorito?</option>
+              </select>
+
+              <input
+                type="text"
+                placeholder="Ingrese su respuesta"
+                required
+                style="height: 2.75rem"
+              />
+
+              <div style="display: flex; justify-content: center">
+                <button
+                  style="
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    font-weight: semibold;
+                    width: 50%;
+                  "
+                >
+                  Crear cuenta
+                </button>
+                <button
+                  style="
+                    background: transparent;
+                    border: none;
+                    color: #000000;
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    font-weight: semibold;
+                    width: 50%;
+                  "
+                >
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          </form>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              margin-top: 10px;
+            "
+          >
+            <label for="remember"
+              ><input
+                type="checkbox"
+                name="remember"
+                id="remember"
+                style="margin-right: 5px; width: 20px; height: 20px"
+              />Me gustaría recibir recomendaciones de libreros curados, ofertas
+              exclusivas y correos electrónicos promocionales.</label
+            >
+            <p style="color: #666; font-size: 14px">
+              Al hacer clic en "Crear cuenta", usted acepta los
+              <a href="#">Términos y Condiciones</a> y nuestro
+              <a href="#">Términos de Uso</a>. Para ver cómo podemos usar su
+              información, eche un vistazo a nuestra
+              <a href="#">Política de Privacidad</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div
         class="container-main"
         style="
@@ -71,11 +375,11 @@
           <button style="border-radius: 0px">Buscar</button>
         </div>
         <div class="nav-links-user">
-          <div
-            style="position: relative; cursor: pointer; user-select: none"
-            id="menu-wishlist"
-          >
-            <i class="fa-solid fa-heart"></i><span>Favoritos</span>
+          <div style="position: relative; cursor: pointer; user-select: none">
+            <div id="menu-wishlist">
+              <i class="fa-solid fa-heart"></i><span>Favoritos</span>
+            </div>
+
             <div
               style="
                 position: absolute;
@@ -90,30 +394,40 @@
               id="menu-wishlist-content"
             ></div>
           </div>
-          <div
-            style="position: relative; cursor: pointer; user-select: none"
-            id="menu-user"
-          >
-            <i class="fa-solid fa-user"></i><span>cuenta</span>
-            <div
-              style="
-                position: absolute;
-                z-index: 99;
-                background-color: red;
-                top: 100%;
-                left: 0;
-                width: 250px;
-                height: 300px;
-                display: none;
-              "
-              id="menu-user-content"
-            ></div>
+          <div style="position: relative; cursor: pointer; user-select: none">
+            <div id="menu-user">
+              <i class="fa-solid fa-user"></i><span>cuenta</span>
+            </div>
+
+            <div class="menu-user-dropdown" id="menu-user-content">
+              <div class="menu-user-dropdown-content">
+                <div
+                  style="margin-bottom: 5px; border-bottom: 1px solid #9e9e9e"
+                >
+                  <button style="margin-bottom: 5px" id="toggle-login-popup">
+                    Iniciar sesión
+                  </button>
+                  <button
+                    style="background: transparent; color: black"
+                    id="toggle-signup-popup"
+                  >
+                    Registrarse
+                  </button>
+                </div>
+                <div>
+                  <a href="#">Administrar cuenta</a>
+                  <a href="#">Estado de orden</a>
+                  <a href="#">Métodos de pago</a>
+                  <a href="#">Mi libreria digital</a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div
-            style="position: relative; cursor: pointer; user-select: none"
-            id="menu-cart"
-          >
-            <i class="fa-solid fa-cart-shopping"></i><span>Carrito</span>
+          <div style="position: relative; cursor: pointer; user-select: none">
+            <div id="menu-cart">
+              <i class="fa-solid fa-cart-shopping"></i><span>Carrito</span>
+            </div>
+
             <div
               style="
                 position: absolute;
@@ -136,7 +450,10 @@
       >
         <ul class="genre-list">
           <li>
-            <div id="menu-all-genre" style="user-select: none; cursor: pointer">
+            <div
+              id="menu-all-filters-header"
+              style="user-select: none; cursor: pointer"
+            >
               Todos los géneros
             </div>
           </li>
@@ -151,7 +468,10 @@
           <li><a href="#">Comic</a></li>
           <li><a href="#">Manga</a></li>
         </ul>
-        <div class="all-books-filter-container" id="menu-all-genre-content">
+        <div
+          class="all-books-filter-container"
+          id="menu-all-filters-header-content"
+        >
           <div class="all-books-filter-content">
             <div class="all-columns-filters">
               <div class="column-all-books-filters">
@@ -241,6 +561,7 @@
         </div>
       </div>
     </header>
+
     <main style="padding-top: 188px">
       <section class="slider-wrapper">
         <button
@@ -457,21 +778,24 @@
         </div>
       </section>
     </main>
+
     <footer>
       <div class="container-main">
         <div class="footer-content">
           <div class="logo-contact-footer">
-            <a href="#" class="footer-logo"><img src="/public/images/icon-books-swords.png" alt="" /></a>
+            <a href="#" class="footer-logo"
+              ><img src="/public/images/icon-books-swords.png" alt=""
+            /></a>
             <a href="#"
               ><i class="fa-solid fa-globe"></i
-              ><span> www.swordsandbooks.com</span></a
+              ><span>www.swordsandbooks.com</span></a
             >
             <a href="#"
               ><i class="fa-solid fa-map-location-dot"></i
               ><span>Av. Sta. Fe 1860, CABA</span></a
             >
             <a href="#"
-              ><i class="fa-solid fa-phone"></i><span> (0351) 4337074</span></a
+              ><i class="fa-solid fa-phone"></i><span>(0351) 4337074</span></a
             >
           </div>
           <div class="footer-sections-container">
