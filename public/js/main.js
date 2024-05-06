@@ -128,7 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Iniciar sesión - Registrarse
-
   const passwordVisibilityButton = document.getElementById(
     "togglePasswordButton"
   );
@@ -139,39 +138,60 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   const toggleRegisterPopup = document.getElementById("toggle-signup-popup");
   const toggleLoginButton = document.getElementById("toggle-login-popup");
+  const overlay = document.getElementById("overlay");
+  const loginContainer = document.getElementById("login-container");
+  const registerContainer = document.getElementById("register-container");
+
 
   toggleRegisterPopup.addEventListener("click", function () {
-    if ((document.getElementById("login-container").style.display = "block")) {
-      document.getElementById("login-container").style.display = "none";
+    if ((loginContainer.style.display = "block")) {
+      loginContainer.style.display = "none";
     } else {
       console.log("login container is not visible");
     }
-    document.getElementById("register-container").style.display = "block";
+    registerContainer.style.display = "block";
+    overlay.style.display = "block";
   });
 
   toggleLoginButton.addEventListener("click", function () {
-    if((document.getElementById("register-container").style.display = "block")) {
-      document.getElementById("register-container").style.display = "none";
+    if (
+      (registerContainer.style.display = "block")
+    ) {
+      registerContainer.style.display = "none";
     }
-    document.getElementById("login-container").style.display = "block";
+    loginContainer.style.display = "block";
+    overlay.style.display = "block";
   });
 
   closeButtonLogin.addEventListener("click", function () {
-    document.getElementById("login-container").style.display = "none";
+    loginContainer.style.display = "none";
+    overlay.style.display = "none";
   });
 
   closeButtonRegister.addEventListener("click", function () {
-    document.getElementById("register-container").style.display = "none";
+    registerContainer.style.display = "none";
+    overlay.style.display = "none";
   });
 
   toggleRegisterButton.addEventListener("click", function () {
     console.log("toggle register clicked");
-    if ((document.getElementById("login-container").style.display = "block")) {
-      document.getElementById("login-container").style.display = "none";
+    if ((loginContainer.style.display = "block")) {
+      loginContainer.style.display = "none";
     } else {
       console.log("login container is not visible");
     }
-    document.getElementById("register-container").style.display = "block";
+    registerContainer.style.display = "block";
+    overlay.style.display = "block";
+  });
+
+  overlay.addEventListener("click", function () {
+    if (loginContainer.style.display === "block") {
+      loginContainer.style.display = "none";
+      overlay.style.display = "none";
+    } else if (registerContainer.style.display === "block") {
+      registerContainer.style.display = "none";
+      overlay.style.display = "none";
+    }
   });
 
   passwordVisibilityButton.addEventListener("click", togglePasswordVisibility);
