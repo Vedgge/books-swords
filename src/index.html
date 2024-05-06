@@ -1,243 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Libreria CAC</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Libreria CAC</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="/public/css/styles.css" />
+    <link rel="stylesheet" href="/public/css/index.css" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/public/css/styles.css" />
-  <link rel="stylesheet" href="/public/css/index.css" />
+    <!-- Scripts -->
+    <script src="/public/js/main.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/1858177878.js"
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- Scripts -->
-  <script src="/public/js/main.js" defer></script>
-  <script src="https://kit.fontawesome.com/1858177878.js" crossorigin="anonymous"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="S&B-icon.png" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet" />
-</head>
-
-<body class="text-center mt-1">
-  <header>
-    <nav class="container-main navbar">
-      <a href="#"><img src="/public/images/icon-books-swords.png" alt="" style="width: 350px" /></a>
-      <div style="width: 100%; height: 45px; margin: 0 50px; display: flex;">
-        <input type="text" placeholder="Search by title, author, genre or ISBN" style="width: 100%; height: 100%; border-radius: 0px;" />
-        <button style="border-radius: 0px;">Buscar</button>
+  <body class="text-center">
+    <header style="box-shadow: 10px 5px 5px rgba(10, 10, 10, 0.055)">
+      <div
+        class="container-main"
+        style="
+          display: flex;
+          justify-content: flex-end;
+          gap: 20px;
+          text-transform: uppercase;
+          border-bottom: 1px solid #ddd;
+          padding: 10px 0;
+        "
+      >
+        <a href="#"
+          ><i style="margin-right: 8px" class="fa-solid fa-phone"></i
+          >Contacto</a
+        >
+        <a href="#"
+          ><i style="margin-right: 8px" class="fa-solid fa-location-dot"></i
+          >Locales</a
+        >
+        <a href="#"
+          ><i style="margin-right: 8px" class="fa-solid fa-truck-fast"></i
+          >Envío</a
+        >
+        <a href="#">Acerca de nosotros</a>
       </div>
-      <div class="nav-links-user">
-        
-        <div style="position: relative; cursor: pointer; user-select: none;" id="menu-wishlist"><i class="fa-solid fa-heart"></i><span>Favoritos</span>
-        <div style="position: absolute; z-index: 99; background-color: rebeccapurple; top: 100%; left: 0; width: 250px; height: 300px; display: none;" id="menu-wishlist-content">
-        </div></div>
-        <div style="position: relative; cursor: pointer; user-select: none;" id="menu-user"><i class="fa-solid fa-user"></i><span>cuenta</span>
-        <div style="position: absolute; z-index: 99; background-color: red; top: 100%; left: 0; width: 250px; height: 300px; display: none;" id="menu-user-content">
-        </div></div>
-        <div style="position: relative; cursor: pointer; user-select: none;" id="menu-cart"><i class="fa-solid fa-cart-shopping"></i><span>Carrito</span>
-        <div style="position: absolute; z-index: 99; background-color: blue; top: 100%; left: 0; width: 250px; height: 300px; display: none;" id="menu-cart-content">
-        </div></div>
-      </div>
-    </nav>
-    <div class="container-main genre-list-container" style="position: relative;">
-      <ul class="genre-list">
-        <li><div id="menu-all-genre" style="user-select: none; cursor: pointer;">Todos los géneros</div></li>
-        <li><a href="#">Fantasia</a></li>
-        <li><a href="#">Novela</a></li>
-        <li><a href="#">Ciencia Ficcion</a></li>
-        <li><a href="#">Infantil</a></li>
-        <li><a href="#">Adultos</a></li>
-        <li><a href="#">Histórico</a></li>
-        <li><a href="#">Bibliografías</a></li>
-        <li><a href="#">Infantiles</a></li>
-        <li><a href="#">Comic</a></li>
-        <li><a href="#">Manga</a></li>
-      </ul>
-      <div style="width: 1000px; height: 1000px; position: absolute; z-index: 99; background-color: rebeccapurple; top: 100%; left: 0; display: none;" class="all-genres" id="menu-all-genre-content">
-        <ul>
-          <li></li>
-        </ul>
-      </div>
-    </div>
-  </header>
-  <main>
-    <section class="slider-wrapper">
-      <button class="slide-arrow" id="slide-arrow-prev" style="z-index: 99; color: black;">
-        &#8249;
-      </button>
-
-      <button class="slide-arrow" id="slide-arrow-next" style="z-index: 99; color: black;">
-        &#8250;
-      </button>
-
-      <ul class="slides-container" id="slides-container">
-        <a href="" class="slide slide-1"></a>
-        <a href="" class="slide slide-2"></a>
-        <a href="" class="slide slide-3"></a>
-        <a href="" class="slide slide-4"></a>
-      </ul>
-    </section>
-    <section class="mb-1">
-      <div class="container-main more-features" style="text-transform: uppercase; border-bottom: 1px solid #ddd;">
-        <a href="">
-          <img src="/public/images/bestsellers-icon.png" alt="" />
-          <span>Bestsellers</span>
-        </a href="">
-        <a href="">
-          <img src="/public/images/newreleasesicon.png" alt="" />
-          <span>Nuevos Lanzamientos</span>
-        </a href="">
-        <a href="">
-          <img src="/public/images/gift-icon.png" alt="" />
-          <span>Regalos</span>
-        </a href="">
-        <a href="">
-          <img src="/public/images/offersicon.png" alt="" />
-          <span>Ofertas</span>
-        </a href="">
-        <a href="">
-          <img src="/public/images/audiobook-icon.png" alt="" />
-          <span>Audiolibros</span>
-        </a href="">
-        <a href="">
-          <img src="/public/images/sign-book.png" alt="" style="height: 80px" />
-          <span>Libros firmados</span>
-        </a href="">
-      </div>
-    </section>
-    <section>
-      <div class="container-main"
-        style="display: flex; flex-direction: column; justify-content: flex-start !important; align-items: baseline; margin-top: 70px;">
-        <h2>Libros en tendencia #BookTok</h2>
-        <div class="slider-bookshowcase-container">
-          <div class="slider-view-bookshowcase">
-            <button id="prev-btn" class="prev-btn">
-              &#8249;
-            </button>
-            <div id="book-list-slider" class="book-list-slider">
-              <a href="#" id="book-slider" class="book-slider"></a>
-              <a href="#" id="book-slider" class="book-slider"></a>
-              <a href="#" id="book-slider" class="book-slider"></a>
-              <a href="#" id="book-slider" class="book-slider"></a>
-              <a href="#" id="book-slider" class="book-slider"></a>
-              <a href="#" id="book-slider" class="book-slider"></a>
-              <a href="#" id="book-slider" class="book-slider"></a>
-              <a href="#" id="book-slider" class="book-slider"></a>              
+      <nav class="container-main navbar">
+        <a href="#"
+          ><img
+            src="/public/images/icon-books-swords.png"
+            alt=""
+            style="width: 350px"
+        /></a>
+        <div style="width: 100%; height: 45px; margin: 0 50px; display: flex">
+          <input
+            type="text"
+            placeholder="Search by title, author, genre or ISBN"
+            style="width: 100%; height: 100%; border-radius: 0px"
+          />
+          <button style="border-radius: 0px">Buscar</button>
+        </div>
+        <div class="nav-links-user">
+          <div
+            style="position: relative; cursor: pointer; user-select: none"
+            id="menu-wishlist"
+          >
+            <i class="fa-solid fa-heart"></i><span>Favoritos</span>
+            <div
+              style="
+                position: absolute;
+                z-index: 99;
+                background-color: rebeccapurple;
+                top: 100%;
+                left: 0;
+                width: 250px;
+                height: 300px;
+                display: none;
+              "
+              id="menu-wishlist-content"
+            ></div>
+          </div>
+          <div
+            style="position: relative; cursor: pointer; user-select: none"
+            id="menu-user"
+          >
+            <i class="fa-solid fa-user"></i><span>cuenta</span>
+            <div
+              style="
+                position: absolute;
+                z-index: 99;
+                background-color: red;
+                top: 100%;
+                left: 0;
+                width: 250px;
+                height: 300px;
+                display: none;
+              "
+              id="menu-user-content"
+            ></div>
+          </div>
+          <div
+            style="position: relative; cursor: pointer; user-select: none"
+            id="menu-cart"
+          >
+            <i class="fa-solid fa-cart-shopping"></i><span>Carrito</span>
+            <div
+              style="
+                position: absolute;
+                z-index: 99;
+                background-color: blue;
+                top: 100%;
+                left: 0;
+                width: 250px;
+                height: 300px;
+                display: none;
+              "
+              id="menu-cart-content"
+            ></div>
+          </div>
+        </div>
+      </nav>
+      <div
+        class="container-main genre-list-container"
+        style="position: relative"
+      >
+        <ul class="genre-list">
+          <li>
+            <div id="menu-all-genre" style="user-select: none; cursor: pointer">
+              Todos los géneros
             </div>
-            <button id="next-btn" class="next-btn">
-              &#8250;
+          </li>
+          <li><a href="#">Fantasia</a></li>
+          <li><a href="#">Novela</a></li>
+          <li><a href="#">Ciencia Ficcion</a></li>
+          <li><a href="#">Infantil</a></li>
+          <li><a href="#">Adultos</a></li>
+          <li><a href="#">Histórico</a></li>
+          <li><a href="#">Bibliografías</a></li>
+          <li><a href="#">Infantiles</a></li>
+          <li><a href="#">Comic</a></li>
+          <li><a href="#">Manga</a></li>
+        </ul>
+        <div class="all-books-filter-container" id="menu-all-genre-content">
+          <div class="all-books-filter-content">
+            <div class="all-columns-filters">
+              <div class="column-all-books-filters">
+                <h3><a href="#">Géneros</a></h3>
+                <ul>
+                  <li><a href="#">Ficción</a></li>
+                  <li><a href="#">Clásicos</a></li>
+                  <li><a href="#">Ciencia Ficción</a></li>
+                  <li><a href="#">Aventura</a></li>
+                  <li><a href="#">Misterio</a></li>
+                  <li><a href="#">Romance</a></li>
+                  <li><a href="#">Fantasía</a></li>
+                  <li><a href="#">Biografías</a></li>
+                  <li><a href="#">Historia</a></li>
+                </ul>
+              </div>
+              <div class="column-all-books-filters">
+                <h3><a href="#">Idiomas</a></h3>
+                <ul>
+                  <li><a href="#">English</a></li>
+                  <li><a href="#">Español</a></li>
+                  <li><a href="#">Français</a></li>
+                  <li><a href="#">Deutsch</a></li>
+                  <li><a href="#">中文 (Chinese)</a></li>
+                  <li><a href="#">العربية (Arabic)</a></li>
+                  <li><a href="#">Italiano (Italian)</a></li>
+                  <li><a href="#">Русский (Russian)</a></li>
+                  <li><a href="#">日本語 (Japanese)</a></li>
+                </ul>
+              </div>
+              <div
+                class="column-all-books-filters"
+                style="
+                  flex: 1;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-start;
+                "
+              >
+                <h3><a href="#">Premios</a></h3>
+                <ul>
+                  <li><a href="#">Pulitzer Prize</a></li>
+                  <li><a href="#">Man Booker Prize</a></li>
+                  <li><a href="#">Nobel Prize in Literature</a></li>
+                  <li><a href="#">National Book Award</a></li>
+                  <li><a href="#">Hugo Award</a></li>
+                  <li><a href="#">Edgar Award</a></li>
+                  <li><a href="#">Caldecott Medal</a></li>
+                  <li><a href="#">Newbery Medal</a></li>
+                </ul>
+              </div>
+              <div class="column-all-books-filters">
+                <h3><a href="#">Formatos</a></h3>
+                <ul>
+                  <li><a href="#">Formatos Rústicos</a></li>
+                  <li><a href="#">Tapas blandas</a></li>
+                  <li><a href="#">Tapas Duras</a></li>
+                  <li><a href="#">Ediciones especiales</a></li>
+                  <li><a href="#">Ediciones para Kindle</a></li>
+                  <li><a href="#">Letras grandes</a></li>
+                  <li><a href="#">Audiolibros</a></li>
+                  <li><a href="#">PDF/Electrónicos</a></li>
+                  <li><a href="#">ePubs</a></li>
+                </ul>
+              </div>
+            </div>
+            <button
+              class="close-button-all-filters-container"
+              style="
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: black;
+                background: transparent;
+                border: none;
+                font-size: 20px;
+              "
+            >
+              <i class="fa-solid fa-xmark"></i>
             </button>
           </div>
         </div>
       </div>
-      </div>
-    </section>
-    <section>
-      <div class="container-main" style="height: 550px; margin-top: 70px;">
-        <a href="" class="img-background-book">
-        </a>
-      </div>
-    </section>
-    <section>
-      <div class="container-main container-book-showcase" style="height: 750px; margin-top: 70px;">
-        <a href="#" class="book-1"></a>
-        <a href="#" class="book-2"></a>
-        <a href="#" class="book-3"></a>
-        <a href="#" class="book-4"></a>
-        <a href="#" class="book-5"></a>
-        <a href="#" class="book-6"></a>
-        <a href="#" class="book-7"></a>
-      </div>
-    </section>
-<!-- Nuevos Lanzamientos para Jovenes Lectores -->
-<section>
-  <div class="container-main" style="display: flex; flex-direction: column; justify-content: flex-start !important; align-items: baseline; margin-top: 70px;">
-    <h2>Nuevos Lanzamientos para Jovenes Lectores</h2>
-    <div class="slider-bookshowcase-container">
-      <div class="slider-view-bookshowcase">
-        <button id="prev-btn-nuevos" class="prev-btn">
+    </header>
+    <main style="padding-top: 188px">
+      <section class="slider-wrapper">
+        <button
+          class="slide-arrow"
+          id="slide-arrow-prev"
+          style="z-index: 99; color: black"
+        >
           &#8249;
         </button>
-        <div id="book-list-slider-nuevos" class="book-list-slider">
-          <a href="#" class="book-slider"></a>
-          <a href="#" class="book-slider"></a>
-          <a href="#" class="book-slider"></a>
-          <a href="#" class="book-slider"></a>
-          <a href="#" class="book-slider"></a>
-          <a href="#" class="book-slider"></a>
-          <a href="#" class="book-slider"></a>
-          <a href="#" class="book-slider"></a>
-        </div>
-        <button id="next-btn-nuevos" class="next-btn">
-          &#8250;
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- B&S Top 100 -->
-<section>
-  <div class="container-main" style="display: flex; flex-direction: column; justify-content: flex-start !important; align-items: baseline; margin-top: 70px;">
-    <h2>B&S Top 100</h2>
-    <div class="slider-bookshowcase-container">
-      <div class="slider-view-bookshowcase">
-        <button id="prev-btn-top100" class="prev-btn">
-          &#8249;
-        </button>
-        <div id="book-list-slider-top100" class="book-list-slider">
-          <a href="#" class="book-slider"></a>
-          <a href="#" class="book-slider"></a>
-          <a href="#" class="book-slider"></a>
-          <a href="#" class="book-slider"></a>
-          <a href="#" class="book-slider"></a>
-          <a href="#" class="book-slider"></a>
-          <a href="#" class="book-slider"></a>
-        </div>
-        <button id="next-btn-top100" class="next-btn">
-          &#8250;
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-   <!-- Blog -->
-<section>
-  <div class="container-main" style="display: flex; flex-direction: column; justify-content: flex-start !important; align-items: baseline; margin-top: 70px;">
-    <h2>Blog</h2>
-    <div class="slider-blog-container">
-      <div class="slider-blog-view" style="display: flex; flex-direction: column;">
-        <div id="blog-list-slider" class="blog-list-slider">
-          <a href="#" class="blog-slider"></a>
-          <a href="#" class="blog-slider"></a>
-          <a href="#" class="blog-slider"></a>
-          <a href="#" class="blog-slider"></a>
-          <a href="#" class="blog-slider"></a>
-          <a href="#" class="blog-slider"></a>
-          <a href="#" class="blog-slider"></a>
-          <a href="#" class="blog-slider"></a>
-        </div>
-        <div style="display: flex; gap: 1rem;"><button id="prev-btn-blog" class="prev-btn">
-          &#8249;
-        </button>
-        <div class="container-pagination"></div>
-        <button id="next-btn-blog" class="next-btn">
-          &#8250;
-        </button></div>
-      </div>
-    </div>
-  </div>
-</section>
-  </main>
-  <footer>
-    <p>Copyright 2023 Libreria CAC</p>
-  </footer>
-</body>
 
+        <button
+          class="slide-arrow"
+          id="slide-arrow-next"
+          style="z-index: 99; color: black"
+        >
+          &#8250;
+        </button>
+
+        <ul class="slides-container" id="slides-container">
+          <a href="" class="slide slide-1"></a>
+          <a href="" class="slide slide-2"></a>
+          <a href="" class="slide slide-3"></a>
+          <a href="" class="slide slide-4"></a>
+        </ul>
+      </section>
+      <section class="mb-1">
+        <div
+          class="container-main more-features"
+          style="text-transform: uppercase; border-bottom: 1px solid #ddd"
+        >
+          <a href="">
+            <img src="/public/images/bestsellers-icon.png" alt="" />
+            <span>Bestsellers</span>
+          </a>
+          <a href="">
+            <img src="/public/images/newreleasesicon.png" alt="" />
+            <span>Nuevos Lanzamientos</span>
+          </a>
+          <a href="">
+            <img src="/public/images/gift-icon.png" alt="" />
+            <span>Regalos</span>
+          </a>
+          <a href="">
+            <img src="/public/images/offersicon.png" alt="" />
+            <span>Ofertas</span>
+          </a>
+          <a href="">
+            <img src="/public/images/audiobook-icon.png" alt="" />
+            <span>Audiolibros</span>
+          </a>
+          <a href="">
+            <img
+              src="/public/images/sign-book.png"
+              alt=""
+              style="height: 80px"
+            />
+            <span>Libros firmados</span>
+          </a>
+          <a href="">
+            <img
+              src="/public/images/giftcard-icon.png"
+              alt=""
+              style="height: 80px"
+            />
+            <span>Tarjetas de regalo</span>
+          </a>
+        </div>
+      </section>
+      <section>
+        <div
+          class="container-main"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start !important;
+            align-items: baseline;
+            margin-top: 70px;
+          "
+        >
+          <h2>Libros en tendencia #BookTok</h2>
+          <div class="slider-bookshowcase-container">
+            <div class="slider-view-bookshowcase">
+              <button id="prev-btn" class="prev-btn">&#8249;</button>
+              <div id="book-list-slider" class="book-list-slider">
+                <a href="#" id="book-slider" class="book-slider"></a>
+                <a href="#" id="book-slider" class="book-slider"></a>
+                <a href="#" id="book-slider" class="book-slider"></a>
+                <a href="#" id="book-slider" class="book-slider"></a>
+                <a href="#" id="book-slider" class="book-slider"></a>
+                <a href="#" id="book-slider" class="book-slider"></a>
+                <a href="#" id="book-slider" class="book-slider"></a>
+                <a href="#" id="book-slider" class="book-slider"></a>
+              </div>
+              <button id="next-btn" class="next-btn">&#8250;</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container-main" style="height: 550px; margin-top: 70px">
+          <a href="" class="img-background-book"> </a>
+        </div>
+      </section>
+      <section>
+        <div
+          class="container-main container-book-showcase"
+          style="height: 750px; margin-top: 70px"
+        >
+          <a href="#" class="book-1"></a>
+          <a href="#" class="book-2"></a>
+          <a href="#" class="book-3"></a>
+          <a href="#" class="book-4"></a>
+          <a href="#" class="book-5"></a>
+          <a href="#" class="book-6"></a>
+          <a href="#" class="book-7"></a>
+        </div>
+      </section>
+      <!-- Nuevos Lanzamientos para Jovenes Lectores -->
+      <section>
+        <div
+          class="container-main"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start !important;
+            align-items: baseline;
+            margin-top: 70px;
+          "
+        >
+          <h2>Nuevos Lanzamientos para Jovenes Lectores</h2>
+          <div class="slider-bookshowcase-container">
+            <div class="slider-view-bookshowcase">
+              <button id="prev-btn-nuevos" class="prev-btn">&#8249;</button>
+              <div id="book-list-slider-nuevos" class="book-list-slider">
+                <a href="#" class="book-slider"></a>
+                <a href="#" class="book-slider"></a>
+                <a href="#" class="book-slider"></a>
+                <a href="#" class="book-slider"></a>
+                <a href="#" class="book-slider"></a>
+                <a href="#" class="book-slider"></a>
+                <a href="#" class="book-slider"></a>
+                <a href="#" class="book-slider"></a>
+              </div>
+              <button id="next-btn-nuevos" class="next-btn">&#8250;</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- B&S Top 100 -->
+      <section>
+        <div
+          class="container-main"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start !important;
+            align-items: baseline;
+            margin-top: 70px;
+          "
+        >
+          <h2>B&S Top 100</h2>
+          <div class="slider-bookshowcase-container">
+            <div class="slider-view-bookshowcase">
+              <button id="prev-btn-top100" class="prev-btn">&#8249;</button>
+              <div id="book-list-slider-top100" class="book-list-slider">
+                <a href="#" class="book-slider"></a>
+                <a href="#" class="book-slider"></a>
+                <a href="#" class="book-slider"></a>
+                <a href="#" class="book-slider"></a>
+                <a href="#" class="book-slider"></a>
+                <a href="#" class="book-slider"></a>
+                <a href="#" class="book-slider"></a>
+              </div>
+              <button id="next-btn-top100" class="next-btn">&#8250;</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Blog -->
+      <section>
+        <div
+          class="container-main"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start !important;
+            align-items: baseline;
+            margin-top: 70px;
+          "
+        >
+          <h2>Blog</h2>
+          <div class="slider-blog-container">
+            <div
+              class="slider-blog-view"
+              style="display: flex; flex-direction: column"
+            >
+              <div id="blog-list-slider" class="blog-list-slider">
+                <a href="#" class="blog-slider"></a>
+                <a href="#" class="blog-slider"></a>
+                <a href="#" class="blog-slider"></a>
+                <a href="#" class="blog-slider"></a>
+                <a href="#" class="blog-slider"></a>
+                <a href="#" class="blog-slider"></a>
+                <a href="#" class="blog-slider"></a>
+                <a href="#" class="blog-slider"></a>
+              </div>
+              <div style="display: flex; gap: 1rem">
+                <button id="prev-btn-blog" class="prev-btn">&#8249;</button>
+                <div class="container-pagination"></div>
+                <button id="next-btn-blog" class="next-btn">&#8250;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container-main">
+        <div class="footer-content">
+          <div class="logo-contact-footer">
+            <a href="#" class="footer-logo"><img src="/public/images/icon-books-swords.png" alt="" /></a>
+            <a href="#"
+              ><i class="fa-solid fa-globe"></i
+              ><span> www.swordsandbooks.com</span></a
+            >
+            <a href="#"
+              ><i class="fa-solid fa-map-location-dot"></i
+              ><span>Av. Sta. Fe 1860, CABA</span></a
+            >
+            <a href="#"
+              ><i class="fa-solid fa-phone"></i><span> (0351) 4337074</span></a
+            >
+          </div>
+          <div class="footer-sections-container">
+            <div>
+              <h5>Navegación de la página</h5>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Pariatur sapiente iure fugiat optio officia, sunt sed itaque,
+                quibusdam deserunt nobis fugit dolor veniam at in sit molestiae
+                provident nostrum nisi.
+              </p>
+            </div>
+            <div>
+              <h5>Lorem</h5>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Pariatur sapiente iure fugiat optio officia, sunt sed itaque,
+                quibusdam deserunt nobis fugit dolor veniam at in sit molestiae
+                provident nostrum nisi.
+              </p>
+            </div>
+            <div>
+              <h5>Lorem</h5>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Pariatur sapiente iure fugiat optio officia, sunt sed itaque,
+                quibusdam deserunt nobis fugit dolor veniam at in sit molestiae
+                provident nostrum nisi.
+              </p>
+            </div>
+            <div class="social-media-footer">
+              <h5>Encontranos en nuestras redes sociales</h5>
+              <div>
+                <a href="https://www.instagram.com/"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href="https://www.facebook.com/"
+                  ><i class="fa-brands fa-facebook-f"></i
+                ></a>
+                <a href="https://www.linkedin.com/"
+                  ><i class="fa-brands fa-linkedin-in"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

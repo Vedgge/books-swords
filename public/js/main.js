@@ -54,46 +54,50 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   buttonWishlist.addEventListener("click", () => {
-    closeMenus();
     console.log("menu wishlist clicked");
-    buttonWishlist.classList.toggle("active");
-    if (menuWishlist.style.display === "none") {
-      menuWishlist.style.display = "block";
-    } else {
+    if (menuWishlist.style.display === "block") {
       menuWishlist.style.display = "none";
+      buttonWishlist.classList.remove("active");
+    } else {
+      closeMenus();
+      menuWishlist.style.display = "block";
+      buttonWishlist.classList.add("active");
     }
   });
 
   buttonUser.addEventListener("click", () => {
-    closeMenus();
     console.log("menu user clicked");
-    buttonUser.classList.toggle("active");
-    if (menuUser.style.display === "none") {
-      menuUser.style.display = "block";
-    } else {
+    if (menuUser.style.display === "block") {
       menuUser.style.display = "none";
+      buttonUser.classList.remove("active");
+    } else {
+      closeMenus();
+      menuUser.style.display = "block";
+      buttonUser.classList.add("active");
     }
   });
 
   buttonCart.addEventListener("click", () => {
-    closeMenus();
     console.log("menu cart clicked");
-    buttonCart.classList.toggle("active");
-    if (menuCart.style.display === "none") {
-      menuCart.style.display = "block";
-    } else {
+    if (menuCart.style.display === "block") {
       menuCart.style.display = "none";
+      buttonCart.classList.remove("active");
+    } else {
+      closeMenus();
+      menuCart.style.display = "block";
+      buttonCart.classList.add("active");
     }
   });
 
   buttonAllGenre.addEventListener("click", () => {
-    closeMenus();
     console.log("menu all genre clicked");
-    buttonAllGenre.classList.toggle("active");
-    if (menuAllGenre.style.display === "none") {
-      menuAllGenre.style.display = "block";
-    } else {
+    if (menuAllGenre.style.display === "block") {
       menuAllGenre.style.display = "none";
+      buttonAllGenre.classList.remove("active");
+    } else {
+      closeMenus();
+      menuAllGenre.style.display = "block";
+      buttonAllGenre.classList.add("active");
     }
   });
 
@@ -110,6 +114,15 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!isMenuButton && !isMenuContent) {
       closeMenus();
     }
+  });
+
+  const closeButton = document.querySelector(
+    ".close-button-all-filters-container"
+  );
+  const filterContainer = document.querySelector(".all-books-filter-container");
+
+  closeButton.addEventListener("click", function () {
+    filterContainer.style.display = "none";
   });
 
   // Booktok carrusel
