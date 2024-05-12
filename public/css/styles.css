@@ -451,8 +451,8 @@ footer {
   .nav-links-user, .genre-list-container  {
     display: none;
   }
-  .mobile-version {
+  /* .mobile-version {
     display: flex;
-  }
+  } */
 }
 

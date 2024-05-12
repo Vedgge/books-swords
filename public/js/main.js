@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuWishlist = document.getElementById("menu-wishlist-content");
   const menuUser = document.getElementById("menu-user-content");
   const menuCart = document.getElementById("menu-cart-content");
-
+  // Mobile buttons
   const menuUserMobile = document.getElementById("menu-user-mobile");
   const menuWishlistMobile = document.getElementById("menu-wishlist-mobile");
   const menuCartMobile = document.getElementById("menu-cart-mobile");
