@@ -178,16 +178,51 @@
   scroll-snap-align: center;
   min-width: 225px;
   height: 342px;
-  background-color: red;
+  background-color: transparent;
+  position: relative;
+  border-radius: 8px;
+}
+
+.book-slider img, .book-slider-nuevos img, .book-slider-top img {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.book-slider-nuevos, .book-slider-top {
+   scroll-snap-align: center;
+  min-width: 225px;
+  height: 342px;
+    position: relative;
   border-radius: 8px;
 }
 
 .blog-slider {
+  position: relative;
   scroll-snap-align: center;
   min-width: 445px;
   height: 342px;
   background-color: red;
   border-radius: 8px;
+  overflow: hidden;
+}
+
+.blog-slider h2 {
+    transition: bottom 0.3s ease-in-out;
+    z-index: 2;
+    color: #ddd;
+  }
+  
+.blog-slider img {
+   height: 100%;
+  width: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .container-pagination {
@@ -232,10 +267,20 @@
 
 .container-book-showcase > a {
   border-radius: 8px;
-  background-color: red;
   text-align: center;
   padding: 20px;
   font-size: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.container-book-showcase > a > img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .book-1 {
@@ -264,4 +309,16 @@
 
 .book-7 {
   grid-area: book-7;
+}
+
+/* Media Queries */
+
+/* Estilos para pantallas más pequeñas, como celulares en posición vertical */
+@media only screen and (max-width: 600px) {
+
+}
+
+/* Estilos para pantallas más grandes, como celulares en posición horizontal o tablets */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+
 }

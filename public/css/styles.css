@@ -109,6 +109,11 @@ textarea {
   margin-top: 1rem;
 }
 
+.px-1 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 /* Diseño de cuadrícula */
 .row {
   display: flex;
@@ -155,7 +160,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .nav-links-user {
@@ -411,5 +417,42 @@ footer {
 }
 
 .social-media-footer a:hover {
-  background-color: #114aace3;
+  background-color: #ddd;
 }
+
+.mobile-version{
+  display: none;
+}
+
+/* Media queries */
+@media only screen and (max-width: 1150px) {
+  .genre-list li:last-child {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1075px) {
+  .genre-list li:nth-last-child(2) {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-grow-icon {
+    flex-grow: 1;
+  }
+  .burger {
+    display: block !important;
+  }
+  .nav-links-user, .genre-list-container  {
+    display: none;
+  }
+  .mobile-version {
+    display: flex;
+  }
+}
+

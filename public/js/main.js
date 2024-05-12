@@ -36,12 +36,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttonUser = document.getElementById("menu-user");
   const buttonCart = document.getElementById("menu-cart");
   const buttonAllGenre = document.getElementById("menu-all-filters-header");
+  const buttonAllGenreMobile = document.getElementById(
+    "menu-all-filters-mobile"
+  );
   const menuAllGenre = document.getElementById(
     "menu-all-filters-header-content"
   );
   const menuWishlist = document.getElementById("menu-wishlist-content");
   const menuUser = document.getElementById("menu-user-content");
   const menuCart = document.getElementById("menu-cart-content");
+
+  const menuUserMobile = document.getElementById("menu-user-mobile");
+  const menuWishlistMobile = document.getElementById("menu-wishlist-mobile");
+  const menuCartMobile = document.getElementById("menu-cart-mobile");
 
   function closeMenus() {
     menuWishlist.style.display = "none";
@@ -52,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
     buttonWishlist.classList.remove("active");
     buttonUser.classList.remove("active");
     buttonCart.classList.remove("active");
+    buttonAllGenreMobile.classList.remove("active");
     buttonAllGenre.classList.remove("active");
   }
 
@@ -89,6 +97,10 @@ document.addEventListener("DOMContentLoaded", function () {
       menuCart.style.display = "block";
       buttonCart.classList.add("active");
     }
+  });
+
+  buttonAllGenreMobile.addEventListener("click", () => {
+    console.log("menu all genre clicked");
   });
 
   buttonAllGenre.addEventListener("click", () => {
@@ -142,7 +154,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const loginContainer = document.getElementById("login-container");
   const registerContainer = document.getElementById("register-container");
 
-
   toggleRegisterPopup.addEventListener("click", function () {
     if ((loginContainer.style.display = "block")) {
       loginContainer.style.display = "none";
@@ -154,9 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   toggleLoginButton.addEventListener("click", function () {
-    if (
-      (registerContainer.style.display = "block")
-    ) {
+    if ((registerContainer.style.display = "block")) {
       registerContainer.style.display = "none";
     }
     loginContainer.style.display = "block";
