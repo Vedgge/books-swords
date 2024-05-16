@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (imageSrc !== null) {
         img.src = imageSrc;
       } else {
-        img.src = "images/breaking-news-generic.jpg";
+        img.src = "../images/breaking-news-generic.jpg";
       }
       img.alt = title;
       a.appendChild(img);
