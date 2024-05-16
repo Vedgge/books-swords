@@ -22,6 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
       const article = articles[index];
       const title = article.title;
       const imageSrc = article.urlToImage;
+      const aElementsSrc = article.url;
+
+      // Reemplazar el href del <a> por la URL de la noticia completa
+      a.href = aElementsSrc;
+      a.setAttribute("target", "_blank");
 
       // Reemplazar el texto del h2 por el título de la noticia
       const h2 = a.querySelector("h2");
@@ -29,9 +34,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Agregar una imagen de la noticia dentro del <a>
       const img = document.createElement("img");
-      img.src = imageSrc;
+      if (imageSrc !== null) {
+        img.src = imageSrc;
+      } else {
+        img.src = "/public/images/breaking-news-generic.jpg";
+      }
       img.alt = title;
       a.appendChild(img);
+
+      const overlay = document.createElement("div");
+      overlay.style =
+        "background: red; position: absolute; width: 100%; height: 250px; bottom: 0; background: linear-gradient(to top, black, transparent);";
+      a.appendChild(overlay);
     });
   }
 });
