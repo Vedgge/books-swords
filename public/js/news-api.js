@@ -1,9 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var url =
-    "https://newsapi.org/v2/top-headlines?" +
-    "country=us&" +
-    "apiKey=b5423a20aedf48ea98ea664d75237c57";
-  var req = new Request(url);
+  let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${window.config.NEWS_API_KEY}`;
+  let req = new Request(url);
   fetch(req)
     .then(function (response) {
       if (!response.ok) {
