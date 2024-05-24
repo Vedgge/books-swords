@@ -3,23 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Libreria CAC</title>
+    <title>Detalles del libro</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="/public/css/styles.css" />
+    <link rel="stylesheet" href="/public/css/detalles.css" />
 
     <!-- Scripts -->
     <script src="js/books-data.js" defer></script>
-    <script src="js/books-index-functions.js" defer></script>
-    <script src="js/main-index.js" defer></script>
-    <script src="js/header-functions.js"></script>
+    <script src="/public/js/book-details-functions.js" type="module"></script>
     <script
       src="https://kit.fontawesome.com/1858177878.js"
       crossorigin="anonymous"
     ></script>
-    <script src="js/news-api.js" defer></script>
-    <script src="config.js"></script>
+    <script src="js/header-functions.js"></script>
 
     <!-- Favicon -->
     <link rel="icon" href="S&B-icon.png" />
@@ -35,8 +32,7 @@
       rel="stylesheet"
     />
   </head>
-
-  <body class="text-center relative">
+  <body>
     <header style="box-shadow: 10px 5px 5px rgba(10, 10, 10, 0.055)">
       <div id="overlay" class="overlay"></div>
       <div
@@ -693,64 +689,47 @@
       </div>
     </header>
 
-    <main style="padding-top: 188px">
-      <section class="slider-wrapper">
-        <button
-          class="slide-arrow"
-          id="slide-arrow-prev"
-          style="z-index: 99; color: black"
-        >
-          &#8249;
-        </button>
-
-        <button
-          class="slide-arrow"
-          id="slide-arrow-next"
-          style="z-index: 99; color: black"
-        >
-          &#8250;
-        </button>
-
-        <ul class="slides-container" id="slides-container">
-          <a href="" class="slide slide-1"></a>
-          <a href="" class="slide slide-2"></a>
-          <a href="" class="slide slide-3"></a>
-          <a href="" class="slide slide-4"></a>
-        </ul>
+    <main style="padding-top: 195px">
+      <section class="px-1">
+        <div style="padding: 12px 0" class="container-main">
+          <a href="./index.html">Inicio</a> /
+          <a href="./categoria.html">Categorias</a> /
+          <a href="" id="book-title-breadcrump"></a>
+        </div>
       </section>
-      <section class="mb-1 px-1">
-        <div
-          class="container-main more-features"
-          style="text-transform: uppercase; border-bottom: 1px solid #ddd"
-        >
-          <a href="">
-            <img src="images/bestsellers-icon.png" alt="" />
-            <span>Bestsellers</span>
-          </a>
-          <a href="">
-            <img src="images/newreleasesicon.png" alt="" />
-            <span>Nuevos Lanzamientos</span>
-          </a>
-          <a href="">
-            <img src="images/gift-icon.png" alt="" />
-            <span>Regalos</span>
-          </a>
-          <a href="">
-            <img src="images/offersicon.png" alt="" />
-            <span>Ofertas</span>
-          </a>
-          <a href="">
-            <img src="images/audiobook-icon.png" alt="" />
-            <span>Audiolibros</span>
-          </a>
-          <a href="">
-            <img src="images/sign-book.png" alt="" style="height: 80px" />
-            <span>Libros firmados</span>
-          </a>
-          <a href="">
-            <img src="images/giftcard-icon.png" alt="" style="height: 80px" />
-            <span>Tarjetas de regalo</span>
-          </a>
+      <section>
+        <div class="container-main">
+          <div class="detalle">
+            <div class="datosDeUno">
+              <figure id="imagenTapa" class="contenedor-libro"></figure>
+              <div style="display: flex; flex-direction: column; gap: 15px">
+                <h2
+                  id="tituloLibro"
+                  style="font-size: 1.928rem; margin: 0"
+                ></h2>
+                <p id="autorLibro"></p>
+                <p id="generoLibro"></p>
+                <p id="precioLibro"></p>
+                <p id="stock"></p>
+                <div style="display: flex; align-items: center; gap: 15px">
+                  <p>Cantidad:</p>
+                  <input type="number" name="" id="" />
+                </div>
+                <div style="display: flex; align-items: center; gap: 15px">
+                  <button>Agregar al carrito</button
+                  ><button
+                    style="background: transparent; color: black; padding: 10px"
+                  >
+                    <i class="fa-regular fa-heart" style="font-size: 20px"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="texto">
+              <h2>Acerca del libro</h2>
+              <p id="comentario"></p>
+            </div>
+          </div>
         </div>
       </section>
       <section>
@@ -764,7 +743,7 @@
             margin-top: 70px;
           "
         >
-          <h2>Libros en tendencia #BookTok</h2>
+          <h2>Libros similares</h2>
           <div class="slider-bookshowcase-container">
             <div class="slider-view-bookshowcase">
               <button id="prev-btn" class="prev-btn">&#8249;</button>
@@ -783,232 +762,9 @@
           </div>
         </div>
       </section>
-      <section class="px-1">
-        <div class="container-main" style="height: 550px; margin-top: 70px">
-          <a href="" class="img-background-book"> </a>
-        </div>
-      </section>
-      <section class="px-1 grid-book-showcase-section">
-        <div
-          class="container-main container-book-showcase"
-          id="container-book-showcase"
-          style="height: 750px; margin-top: 70px"
-        >
-          <!-- <a href="#" class="book-1"></a>
-          <a href="#" class="book-2"></a>
-          <a href="#" class="book-3"></a>
-          <a href="#" class="book-4"></a>
-          <a href="#" class="book-5"></a>
-          <a href="#" class="book-6"></a>
-          <a href="#" class="book-7"></a> -->
-        </div>
-      </section>
-      <!-- Nuevos Lanzamientos para Jovenes Lectores -->
-      <section class="px-1">
-        <div
-          class="container-main"
-          style="
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start !important;
-            align-items: baseline;
-            margin-top: 70px;
-          "
-        >
-          <h2>Nuevos Lanzamientos para Jovenes Lectores</h2>
-          <div class="slider-bookshowcase-container">
-            <div class="slider-view-bookshowcase">
-              <button id="prev-btn-nuevos" class="prev-btn">&#8249;</button>
-              <div id="book-list-slider-nuevos" class="book-list-slider">
-                <!-- <a href="#" class="book-slider-nuevos"></a>
-                <a href="#" class="book-slider-nuevos"></a>
-                <a href="#" class="book-slider-nuevos"></a>
-                <a href="#" class="book-slider-nuevos"></a>
-                <a href="#" class="book-slider-nuevos"></a>
-                <a href="#" class="book-slider-nuevos"></a>
-                <a href="#" class="book-slider-nuevos"></a>
-                <a href="#" class="book-slider-nuevos"></a> -->
-              </div>
-              <button id="next-btn-nuevos" class="next-btn">&#8250;</button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- B&S Top 100 -->
-      <section class="px-1">
-        <div
-          class="container-main"
-          style="
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start !important;
-            align-items: baseline;
-            margin-top: 70px;
-          "
-        >
-          <h2>B&S Top 100</h2>
-          <div class="slider-bookshowcase-container">
-            <div class="slider-view-bookshowcase">
-              <button id="prev-btn-top100" class="prev-btn">&#8249;</button>
-              <div id="book-list-slider-top100" class="book-list-slider">
-                <!-- <a href="#" class="book-slider-top"></a>
-                <a href="#" class="book-slider-top"></a>
-                <a href="#" class="book-slider-top"></a>
-                <a href="#" class="book-slider-top"></a>
-                <a href="#" class="book-slider-top"></a>
-                <a href="#" class="book-slider-top"></a>
-                <a href="#" class="book-slider-top"></a> -->
-              </div>
-              <button id="next-btn-top100" class="next-btn">&#8250;</button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Blog -->
-      <section class="px-1">
-        <div
-          class="container-main"
-          style="
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start !important;
-            align-items: baseline;
-            margin-top: 70px;
-          "
-        >
-          <h2>Blog</h2>
-          <div class="slider-blog-container">
-            <div
-              class="slider-blog-view"
-              style="display: flex; flex-direction: column"
-            >
-              <div id="blog-list-slider" class="blog-list-slider">
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
-              </div>
-              <div style="display: flex; gap: 1rem">
-                <button id="prev-btn-blog" class="prev-btn">&#8249;</button>
-                <div class="container-pagination"></div>
-                <button id="next-btn-blog" class="next-btn">&#8250;</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div id="output"></div>
     </main>
 
-    <footer>
+  <footer>
       <div class="container-main px-1">
         <div class="footer-content">
           <div class="logo-contact-footer">

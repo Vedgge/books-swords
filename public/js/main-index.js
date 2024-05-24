@@ -99,20 +99,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (nextScrollLeft > maxScrollLeft) {
       listBlog.scrollLeft = 0;
-      updatePaginationDots(0);
+      actualizarPuntosPaginacion(0);
     } else {
       listBlog.scrollLeft = nextScrollLeft;
       const newIndex = Math.round(nextScrollLeft / (blogWidth + padding));
-      updatePaginationDots(newIndex);
+      actualizarPuntosPaginacion(newIndex);
     }
   });
 
-  function createPaginationDots() {
-    const paginationContainer = document.querySelector(".container-pagination");
+  function crearPuntosPaginacion() {
+    const containerPaginacion = document.querySelector(".container-pagination");
     const blogSliders = document.querySelectorAll(".blog-slider");
-    const numDots = blogSliders.length - 2;
+    const numPuntos = blogSliders.length - 2;
 
-    for (let i = 0; i < numDots; i++) {
+    for (let i = 0; i < numPuntos; i++) {
       const dot = document.createElement("div");
       dot.classList.add("dot-pagination");
       if (i === 0) {
@@ -120,15 +120,15 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       dot.addEventListener("click", () => {
         listBlog.scrollLeft = i * (blogWidth + padding);
-        updatePaginationDots(i);
+        actualizarPuntosPaginacion(i);
       });
-      paginationContainer.appendChild(dot);
+      containerPaginacion.appendChild(dot);
     }
   }
 
-  function updatePaginationDots(index) {
-    const dots = document.querySelectorAll(".dot-pagination");
-    dots.forEach((dot, i) => {
+  function actualizarPuntosPaginacion(index) {
+    const puntos = document.querySelectorAll(".dot-pagination");
+    puntos.forEach((dot, i) => {
       if (i === index) {
         dot.classList.add("active");
       } else {
@@ -137,5 +137,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  createPaginationDots();
+  crearPuntosPaginacion();
 });

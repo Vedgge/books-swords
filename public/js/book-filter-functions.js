@@ -8,30 +8,48 @@ const filtrarLibros = function (genero, autor) {
   });
 };
 
-const agregarImagenesALaPagina = function (listadoLibros) {
+const agregarLibrosAPagina = function (listadoLibros) {
+  const errorDiv = document.getElementById("error-case-div");
   while (contenedor.hasChildNodes()) {
     contenedor.removeChild(contenedor.firstChild);
   }
-  for (let i = 0; i < listadoLibros.length; i++) {
-    let contenedorLibro = document.createElement("figure");
-    contenedorLibro.classList.add("contenedor-libro");
 
-    let enlaceLibro = document.createElement("a");
-    enlaceLibro.href = listadoLibros[i].url;
-    enlaceLibro.setAttribute("target", "_blank");
+  if (listadoLibros.length === 0) {
+    let errorText = document.createElement("h2");
+    errorDiv.style = "width: 100%;";
+    errorText.textContent = "Error 404: Libro no encontrado";
+    errorText.style =
+      "display: flex; justify-content: center;margin-left: 1rem;";
+    contenedor.style = "display: flex; justify-content: center;";
 
-    let unaImagen = document.createElement("img");
-    unaImagen.classList.add("fotoTapa");
-    unaImagen.setAttribute("src", listadoLibros[i].imagen);
+    contenedor.appendChild(errorText);
+  } else {
+    errorDiv.style.width = "";
+    contenedor.style.display = "grid";
+    contenedor.style.justifyContent = "";
+    for (let i = 0; i < listadoLibros.length; i++) {
+      let contenedorLibro = document.createElement("figure");
+      contenedorLibro.classList.add("contenedor-libro");
 
-    let titulo = document.createElement("figcaption");
-    titulo.innerText = `${listadoLibros[i].titulo}\n${listadoLibros[i].autor}`;
+      let enlaceLibro = document.createElement("a");
+      enlaceLibro.href =
+        "./libro-detalle.html" + "?imagen=" + listadoLibros[i].imagen;
+      enlaceLibro.setAttribute("target", "_blank");
 
-    enlaceLibro.appendChild(unaImagen);
-    enlaceLibro.appendChild(titulo);
-    contenedorLibro.appendChild(enlaceLibro);
-    contenedor.appendChild(contenedorLibro);
+      let unaImagen = document.createElement("img");
+      unaImagen.classList.add("fotoTapa");
+      unaImagen.setAttribute("src", listadoLibros[i].imagen);
+
+      let titulo = document.createElement("figcaption");
+      titulo.innerText = `${listadoLibros[i].titulo}\n${listadoLibros[i].autor}`;
+
+      enlaceLibro.appendChild(unaImagen);
+      enlaceLibro.appendChild(titulo);
+      contenedorLibro.appendChild(enlaceLibro);
+      contenedor.appendChild(contenedorLibro);
+    }
   }
+
   actualizarConteoLibros(listadoLibros.length);
 };
 
@@ -99,7 +117,7 @@ const listadoAutores = listaAutores(booksData);
 agregarMenuDesplegable(listadoAutores, "filtroAutor", "autor");
 
 document.addEventListener("DOMContentLoaded", () => {
-  agregarImagenesALaPagina(booksData);
+  agregarLibrosAPagina(booksData);
 });
 
 const tituloFiltros = function (seleccionAutorFiltro, seleccionGeneroFiltro) {
@@ -109,8 +127,7 @@ const tituloFiltros = function (seleccionAutorFiltro, seleccionGeneroFiltro) {
   let tituloBusqueda = document.getElementById("titulo-filtro");
 
   if (!tituloBusqueda) {
-    tituloBusqueda = document.createElement("h2");
-    tituloBusqueda.setAttribute("id", "titulo-filtro");
+    tituloBusqueda = document.getElementById("titulo-filtro");
     contenedorTituloBusqueda.appendChild(tituloBusqueda);
   }
 
@@ -146,7 +163,7 @@ const actualizarLibros = function () {
     seleccionGeneroFiltro,
     seleccionAutorFiltro
   );
-  agregarImagenesALaPagina(listaLibrosMostrar);
+  agregarLibrosAPagina(listaLibrosMostrar);
 
   tituloFiltros(seleccionAutorFiltro, seleccionGeneroFiltro);
 };
@@ -164,5 +181,5 @@ inputBusqueda.addEventListener("input", (e) => {
       libro.genero.toLowerCase().includes(busqueda)
     );
   });
-  agregarImagenesALaPagina(listaLibrosMostrar);
+  agregarLibrosAPagina(listaLibrosMostrar);
 });

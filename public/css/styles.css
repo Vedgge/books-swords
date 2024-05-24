@@ -6,12 +6,14 @@ body {
   margin: 0;
   padding: 0;
 }
+figure {
+  margin: 0;
+}
 /* section {
     margin: 0 auto;
     padding: 0 10px;
     box-sizing: border-box;
 } */
-
 
 h1,
 h2,
@@ -85,26 +87,37 @@ input[type="submit"] {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="number"],
 select,
 textarea {
   border: 1px solid var(--secondary-color);
   padding: 8px 12px;
   border-radius: 4px;
+  outline: none;
+  transition-duration: 300ms;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover,
+input[type="number"]:hover,
+select:hover,
+textarea:hover {
+  background-color: #f5f5f5;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  background-color: #f5f5f5;
 }
 
 /* Utilidades */
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .text-center {
   text-align: center;
-}
-
-.hidden {
-  display: none;
 }
 
 .mb-1 {
@@ -118,26 +131,6 @@ textarea {
 .px-1 {
   padding-left: 1rem;
   padding-right: 1rem;
-}
-
-/* Diseño de cuadrícula */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -15px;
-  margin-right: -15px;
-}
-
-.col {
-  display: flex;
-  flex-direction: column;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.col-6 {
-  flex: 0 0 50%;
-  max-width: 50%;
 }
 
 .container-main {
@@ -335,9 +328,9 @@ footer {
 
 .footer-content {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
   gap: 40px;
-  padding: 30px 0;
+  padding: 30px 20px;
   border-bottom: 1px solid #ffffffa9;
 }
 
@@ -352,7 +345,8 @@ footer {
 }
 
 .footer-logo img {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
 }
 
 .logo-contact-footer a {
@@ -364,7 +358,6 @@ footer {
 
 .logo-contact-footer a:hover {
   text-decoration: underline;
-  color: #ddd;
 }
 
 .logo-contact-footer a i {
@@ -374,9 +367,10 @@ footer {
 
 .footer-sections-container {
   display: flex;
+  flex-direction: column;
   color: black;
-  gap: 10px;
-  max-height: 500px;
+  gap: 20px;
+  max-width: 100%;
 }
 
 .footer-sections-container div {
@@ -384,6 +378,7 @@ footer {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  width: 100%;
 }
 
 .footer-sections-container div h5 {
@@ -414,9 +409,7 @@ footer {
   width: 3.25rem;
   height: 3.25rem;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: center;
   justify-content: center;
   color: black;
   transition: 0.3s ease-in-out;
@@ -426,11 +419,24 @@ footer {
   background-color: #ddd;
 }
 
-.mobile-version{
-  display: none;
+/* Media queries */
+@media only screen and (max-width: 1200px) {
+  .logo-contact-footer {
+    max-width: 300px;
+  }
+
+  .social-media-footer div {
+    gap: 20px;
+  }
+
+  .footer-logo img {
+    width: 100%;
+  }
+  .footer-sections-container div h5 {
+    white-space: wrap;
+  }
 }
 
-/* Media queries */
 @media only screen and (max-width: 1150px) {
   .genre-list li:last-child {
     display: none;
@@ -448,13 +454,17 @@ footer {
     display: flex;
     flex-direction: column;
   }
+  .contenedor-logo-hamburguer {
+    width: 100%;
+  }
   .mobile-grow-icon {
     flex-grow: 1;
   }
   .burger {
     display: block !important;
   }
-  .nav-links-user, .genre-list-container  {
+  .nav-links-user,
+  .genre-list-container {
     display: none;
   }
   /* .mobile-version {
@@ -462,3 +472,69 @@ footer {
   } */
 }
 
+@media (min-width: 768px) {
+  .logo-contact-footer {
+    width: max-content;
+  }
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footer-sections-container {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  /* .footer-sections-container div {
+    max-width: 250px;
+  } */
+  .column-footer {
+    width: 100%;
+    max-width: 250px;
+    margin-right: 3vw;
+  }
+  .footer-sections-container div div {
+    width: fit-content;
+  }
+}
+
+.mobile-version {
+  display: none;
+}
+
+@media only screen and (max-width: 465px) {
+  .footer-content{ 
+    padding: 0 !important;
+    align-items: center;
+  }
+  .upper-navbar-container {
+    display: flex;
+    justify-content: center !important;
+  }
+  .us-desktop-version {
+    display: none;
+  }
+  .us-mobile-version {
+    display: flex !important;
+  }
+  .upper-navbar-container > a > i {
+    display: none;
+  }
+  .mobile-grow-icon {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .icon-desktop-version {
+    display: none;
+  }
+  .contenedor-logo-hamburguer {
+    padding-bottom: 10px;
+  }
+  .icon-mobile-version {
+    height: 70px;
+    display: block !important;
+  }
+}

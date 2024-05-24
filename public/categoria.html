@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Categoria</title>
+    <title>Busqueda de libros</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="/public/css/styles.css" />
@@ -341,7 +341,7 @@
       </div>
 
       <div
-        class="container-main px-1"
+        class="container-main px-1 upper-navbar-container"
         style="
           display: flex;
           justify-content: flex-end;
@@ -352,7 +352,7 @@
           padding-bottom: 10px;
         "
       >
-        <a href="#"
+        <a href="./contacto.html"
           ><i style="margin-right: 8px" class="fa-solid fa-phone"></i
           >Contacto</a
         >
@@ -364,7 +364,8 @@
           ><i style="margin-right: 8px" class="fa-solid fa-truck-fast"></i
           >Envío</a
         >
-        <a href="#">Acerca de nosotros</a>
+        <a href="#" class="us-desktop-version">Acerca de nosotros</a>
+        <a href="#" class="us-mobile-version" style="display: none">Nosotros</a>
       </div>
       <nav class="container-main navbar px-1">
         <div
@@ -372,8 +373,9 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
           "
+          class="contenedor-logo-hamburguer"
+          id="contenedor-logo-hamburguer"
         >
           <div
             class="burger"
@@ -386,12 +388,21 @@
               </div>
             </div>
           </div>
-          <div class="mobile-grow-icon">
-            <a href="#"
+          <div
+            class="mobile-grow-icon"
+            style="display: flex; justify-content: center"
+          >
+            <a href="./index.html"
               ><img
                 src="images/icon-books-swords.png"
                 alt=""
-                style="width: 350px"
+                style="max-width: 350px; height: auto"
+                class="icon-desktop-version" />
+              <img
+                src="images/S&B-icon.png"
+                style="display: none"
+                class="icon-mobile-version"
+                alt=""
             /></a>
           </div>
           <div class="nav-links-user mobile-version">
@@ -572,16 +583,16 @@
               <i class="fa-solid fa-chevron-down" style="margin-left: 5px"></i>
             </div>
           </li>
-          <li><a href="#">Fantasia</a></li>
-          <li><a href="#">Novela</a></li>
-          <li><a href="#">Ciencia Ficcion</a></li>
-          <li><a href="#">Infantil</a></li>
-          <li><a href="#">Adultos</a></li>
-          <li><a href="#">Histórico</a></li>
-          <li><a href="#">Bibliografías</a></li>
-          <li><a href="#">Infantiles</a></li>
-          <li><a href="#">Comic</a></li>
-          <li><a href="#">Manga</a></li>
+          <li><a href="./categoria.html">Fantasia</a></li>
+          <li><a href="./categoria.html">Novela</a></li>
+          <li><a href="./categoria.html">Ciencia Ficcion</a></li>
+          <li><a href="./categoria.html">Infantil</a></li>
+          <li><a href="./categoria.html">Adultos</a></li>
+          <li><a href="./categoria.html">Histórico</a></li>
+          <li><a href="./categoria.html">Bibliografías</a></li>
+          <li><a href="./categoria.html">Infantiles</a></li>
+          <li><a href="./categoria.html">Comic</a></li>
+          <li><a href="./categoria.html">Manga</a></li>
         </ul>
         <div
           class="all-books-filter-container"
@@ -590,31 +601,31 @@
           <div class="all-books-filter-content">
             <div class="all-columns-filters">
               <div class="column-all-books-filters">
-                <h3><a href="#">Géneros</a></h3>
+                <h3><a href="./categoria.html">Géneros</a></h3>
                 <ul>
-                  <li><a href="#">Ficción</a></li>
-                  <li><a href="#">Clásicos</a></li>
-                  <li><a href="#">Ciencia Ficción</a></li>
-                  <li><a href="#">Aventura</a></li>
-                  <li><a href="#">Misterio</a></li>
-                  <li><a href="#">Romance</a></li>
-                  <li><a href="#">Fantasía</a></li>
-                  <li><a href="#">Biografías</a></li>
-                  <li><a href="#">Historia</a></li>
+                  <li><a href="./categoria.html">Ficción</a></li>
+                  <li><a href="./categoria.html">Clásicos</a></li>
+                  <li><a href="./categoria.html">Ciencia Ficción</a></li>
+                  <li><a href="./categoria.html">Aventura</a></li>
+                  <li><a href="./categoria.html">Misterio</a></li>
+                  <li><a href="./categoria.html">Romance</a></li>
+                  <li><a href="./categoria.html">Fantasía</a></li>
+                  <li><a href="./categoria.html">Biografías</a></li>
+                  <li><a href="./categoria.html">Historia</a></li>
                 </ul>
               </div>
               <div class="column-all-books-filters">
-                <h3><a href="#">Idiomas</a></h3>
+                <h3><a href="./categoria.html">Idiomas</a></h3>
                 <ul>
-                  <li><a href="#">English</a></li>
-                  <li><a href="#">Español</a></li>
-                  <li><a href="#">Français</a></li>
-                  <li><a href="#">Deutsch</a></li>
-                  <li><a href="#">中文 (Chinese)</a></li>
-                  <li><a href="#">العربية (Arabic)</a></li>
-                  <li><a href="#">Italiano (Italian)</a></li>
-                  <li><a href="#">Русский (Russian)</a></li>
-                  <li><a href="#">日本語 (Japanese)</a></li>
+                  <li><a href="./categoria.html">English</a></li>
+                  <li><a href="./categoria.html">Español</a></li>
+                  <li><a href="./categoria.html">Français</a></li>
+                  <li><a href="./categoria.html">Deutsch</a></li>
+                  <li><a href="./categoria.html">中文 (Chinese)</a></li>
+                  <li><a href="./categoria.html">العربية (Arabic)</a></li>
+                  <li><a href="./categoria.html">Italiano (Italian)</a></li>
+                  <li><a href="./categoria.html">Русский (Russian)</a></li>
+                  <li><a href="./categoria.html">日本語 (Japanese)</a></li>
                 </ul>
               </div>
               <div
@@ -626,30 +637,32 @@
                   align-items: flex-start;
                 "
               >
-                <h3><a href="#">Premios</a></h3>
+                <h3><a href="./categoria.html">Premios</a></h3>
                 <ul>
-                  <li><a href="#">Pulitzer Prize</a></li>
-                  <li><a href="#">Man Booker Prize</a></li>
-                  <li><a href="#">Nobel Prize in Literature</a></li>
-                  <li><a href="#">National Book Award</a></li>
-                  <li><a href="#">Hugo Award</a></li>
-                  <li><a href="#">Edgar Award</a></li>
-                  <li><a href="#">Caldecott Medal</a></li>
-                  <li><a href="#">Newbery Medal</a></li>
+                  <li><a href="./categoria.html">Pulitzer Prize</a></li>
+                  <li><a href="./categoria.html">Man Booker Prize</a></li>
+                  <li>
+                    <a href="./categoria.html">Nobel Prize in Literature</a>
+                  </li>
+                  <li><a href="./categoria.html">National Book Award</a></li>
+                  <li><a href="./categoria.html">Hugo Award</a></li>
+                  <li><a href="./categoria.html">Edgar Award</a></li>
+                  <li><a href="./categoria.html">Caldecott Medal</a></li>
+                  <li><a href="./categoria.html">Newbery Medal</a></li>
                 </ul>
               </div>
               <div class="column-all-books-filters">
-                <h3><a href="#">Formatos</a></h3>
+                <h3><a href="./categoria.html">Formatos</a></h3>
                 <ul>
-                  <li><a href="#">Formatos Rústicos</a></li>
-                  <li><a href="#">Tapas blandas</a></li>
-                  <li><a href="#">Tapas Duras</a></li>
-                  <li><a href="#">Ediciones especiales</a></li>
-                  <li><a href="#">Ediciones para Kindle</a></li>
-                  <li><a href="#">Letras grandes</a></li>
-                  <li><a href="#">Audiolibros</a></li>
-                  <li><a href="#">PDF/Electrónicos</a></li>
-                  <li><a href="#">ePubs</a></li>
+                  <li><a href="./categoria.html">Formatos Rústicos</a></li>
+                  <li><a href="./categoria.html">Tapas blandas</a></li>
+                  <li><a href="./categoria.html">Tapas Duras</a></li>
+                  <li><a href="./categoria.html">Ediciones especiales</a></li>
+                  <li><a href="./categoria.html">Ediciones para Kindle</a></li>
+                  <li><a href="./categoria.html">Letras grandes</a></li>
+                  <li><a href="./categoria.html">Audiolibros</a></li>
+                  <li><a href="./categoria.html">PDF/Electrónicos</a></li>
+                  <li><a href="./categoria.html">ePubs</a></li>
                 </ul>
               </div>
             </div>
@@ -678,7 +691,7 @@
     </header>
     <main style="padding-top: 195px">
       <section class="px-1">
-        <div style="padding: 12px 0" class="container-main">BREADCRUMP</div>
+        <div style="padding: 12px 0" class="container-main"><a href="./index.html">Inicio </a>/ <a href="./categoria.html"> Busqueda</a></div>
       </section>
       <section class="px-1">
         <div class="container-main">
@@ -690,23 +703,53 @@
               <div id="filtroGenero"></div>
               <div id="filtroAutor"></div>
             </div>
-            <div>
+            <div id="error-case-div">
               <div>
                 <div
                   style="text-align: center"
                   class="contenedor-titulo-busqueda"
                   id="contenedor-titulo-busqueda"
                 >
-                  <!-- <h2 id="titulo-filtro"></h2> -->
+                  <h2 id="titulo-filtro">Todos los libros de nuestra tienda</h2>
                 </div>
-                <div style="display: flex; justify-content: space-between">
+                <div
+                  style="display: flex; justify-content: space-between"
+                  class="mobile-align-center"
+                >
                   <div style="display: flex; align-items: center; gap: 5px">
-                    <button disabled="" aria-label="View Grid"></button>|<button
+                    <button
+                      disabled=""
+                      aria-label="View Grid"
+                      style="
+                        background: transparent;
+                        padding: 10px;
+                        color: rgba(0, 0, 0, 0.26);
+                      "
+                    >
+                      <i
+                        class="fa-solid fa-table-cells-large"
+                        style="display: inline-block; font-size: 1.5rem"
+                      ></i></button
+                    ><span style="padding-bottom: 2px">|</span
+                    ><button
                       aria-label="View List"
-                    ></button>
+                      style="
+                        background: transparent;
+                        padding: 10px;
+                        color: black;
+                      "
+                    >
+                      <i
+                        class="fa-solid fa-list"
+                        style="display: inline-block; font-size: 1.5rem"
+                      ></i>
+                    </button>
                   </div>
-                  <div style="margin-left: 6.5rem">
-                    <p>Pagina 1 de 5 - <span id="conteo-libros">0</span> resultados</p>
+                  <div style="margin-left: 6.5rem" class="mobile-marginless">
+                    <p>
+                      Pagina 1 de 5 -
+                      <span id="conteo-libros">0</span> resultados
+                    </p>
                   </div>
                   <div style="display: flex">
                     <div>
@@ -740,7 +783,7 @@
       </section>
     </main>
 
-    <footer>
+   <footer>
       <div class="container-main px-1">
         <div class="footer-content">
           <div class="logo-contact-footer">
@@ -760,35 +803,35 @@
             >
           </div>
           <div class="footer-sections-container">
-            <div>
+            <div class="column-footer">
               <h5>Navegación de la página</h5>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Pariatur sapiente iure fugiat optio officia, sunt sed itaque,
-                quibusdam deserunt nobis fugit dolor veniam at in sit molestiae
-                provident nostrum nisi.
-              </p>
+              <div>
+                <a href="./index.html">Inicio</a>
+                <a href="./categoria.html">Nuestros libros</a><a href="./contacto.html">Contacto</a><a href="">Locales</a> <a href="">Envios</a><a href="">Mi cuenta</a><a href="">Favotiros</a>
+              </div>
             </div>
-            <div>
-              <h5>Lorem</h5>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Pariatur sapiente iure fugiat optio officia, sunt sed itaque,
-                quibusdam deserunt nobis fugit dolor veniam at in sit molestiae
-                provident nostrum nisi.
-              </p>
+            <div class="column-footer">
+              <h5>Organización</h5>
+              <div>
+                <a href="">Encuentra nuestra tienda</a
+                ><a href="">Acerca de nosotros</a
+                ><a href="">Oportunidades laborales</a><a href="">Lee nuestro blog</a
+                ><a href="">Autores y editoriales</a>
+              </div>
             </div>
-            <div>
-              <h5>Lorem</h5>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Pariatur sapiente iure fugiat optio officia, sunt sed itaque,
-                quibusdam deserunt nobis fugit dolor veniam at in sit molestiae
-                provident nostrum nisi.
-              </p>
+            <div class="column-footer">
+              <h5>Ayuda</h5>
+              <div>
+                <a href="">FAQ</a><a href="">Administrar mi cuenta</a
+                ><a href="">Restablecer contraseña</a
+                ><a href="">Carro de compras</a
+                ><a href="">Información de envío</a>
+                <a href="">Información de pago</a>
+                <a href="">Devoluciones</a>
+              </div>
             </div>
             <div class="social-media-footer">
-              <h5>Encontranos en nuestras redes sociales</h5>
+              <h5>Nuestras redes sociales</h5>
               <div>
                 <a href="https://www.instagram.com/"
                   ><i class="fa-brands fa-instagram"></i

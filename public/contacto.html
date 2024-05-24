@@ -11,15 +11,11 @@
 
     <!-- Scripts -->
     <script src="js/books-data.js" defer></script>
-    <script src="js/books-index-functions.js" defer></script>
-    <script src="js/main-index.js" defer></script>
     <script src="js/header-functions.js"></script>
     <script
       src="https://kit.fontawesome.com/1858177878.js"
       crossorigin="anonymous"
     ></script>
-    <script src="js/news-api.js" defer></script>
-    <script src="config.js"></script>
 
     <!-- Favicon -->
     <link rel="icon" href="S&B-icon.png" />
@@ -34,6 +30,46 @@
       href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <style>
+      iframe {
+        width: 100%;
+        height: 100%;
+        min-height: 700px; /* Puedes ajustar esto según lo necesites */
+      }
+      input[type="email"],
+      input[type="text"],
+      input[type="password"],
+      input[type="number"] {
+        height: 40px;
+      }
+      p {
+        margin: 0;
+      }
+      h4 {
+        margin: 0;
+      }
+      @media only screen and (max-width: 1200px) {
+        .container-contact {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .social-media-contact div {
+          flex-direction: row !important;
+        }
+      }
+      @media only screen and (max-width: 685px) {
+        .container-first-info-form {
+          flex-wrap: wrap !important;
+        }
+        .desktop-client-email {
+          display: none !important;
+        }
+        .mobile-client-email {
+          display: flex !important;
+        }
+      }
+    </style>
   </head>
 
   <body class="text-center relative">
@@ -694,318 +730,347 @@
     </header>
 
     <main style="padding-top: 188px">
-      <section class="slider-wrapper">
-        <button
-          class="slide-arrow"
-          id="slide-arrow-prev"
-          style="z-index: 99; color: black"
-        >
-          &#8249;
-        </button>
-
-        <button
-          class="slide-arrow"
-          id="slide-arrow-next"
-          style="z-index: 99; color: black"
-        >
-          &#8250;
-        </button>
-
-        <ul class="slides-container" id="slides-container">
-          <a href="" class="slide slide-1"></a>
-          <a href="" class="slide slide-2"></a>
-          <a href="" class="slide slide-3"></a>
-          <a href="" class="slide slide-4"></a>
-        </ul>
+      <section style="max-height: 700px; width: 100%">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.395481297035!2d-58.44691859999999!3d-34.568858399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5c5ca68d1d1%3A0x22e973a6cee41015!2sAv.%20Cabildo%201100%2C%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1716317681791!5m2!1ses-419!2sar"
+          style="border: 0; width: 100%; height: 100%"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </section>
-      <section class="mb-1 px-1">
+      <section class="mt-1">
         <div
-          class="container-main more-features"
-          style="text-transform: uppercase; border-bottom: 1px solid #ddd"
-        >
-          <a href="">
-            <img src="images/bestsellers-icon.png" alt="" />
-            <span>Bestsellers</span>
-          </a>
-          <a href="">
-            <img src="images/newreleasesicon.png" alt="" />
-            <span>Nuevos Lanzamientos</span>
-          </a>
-          <a href="">
-            <img src="images/gift-icon.png" alt="" />
-            <span>Regalos</span>
-          </a>
-          <a href="">
-            <img src="images/offersicon.png" alt="" />
-            <span>Ofertas</span>
-          </a>
-          <a href="">
-            <img src="images/audiobook-icon.png" alt="" />
-            <span>Audiolibros</span>
-          </a>
-          <a href="">
-            <img src="images/sign-book.png" alt="" style="height: 80px" />
-            <span>Libros firmados</span>
-          </a>
-          <a href="">
-            <img src="images/giftcard-icon.png" alt="" style="height: 80px" />
-            <span>Tarjetas de regalo</span>
-          </a>
-        </div>
-      </section>
-      <section>
-        <div
-          class="container-main"
+          class="container-main container-contact"
           style="
             display: flex;
-            flex-direction: column;
-            justify-content: flex-start !important;
-            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
             margin-top: 70px;
           "
         >
-          <h2>Libros en tendencia #BookTok</h2>
-          <div class="slider-bookshowcase-container">
-            <div class="slider-view-bookshowcase">
-              <button id="prev-btn" class="prev-btn">&#8249;</button>
-              <div id="book-list-slider" class="book-list-slider">
-                <!-- <a href="#" id="book-slider" class="book-slider"></a>
-                <a href="#" id="book-slider" class="book-slider"></a>
-                <a href="#" id="book-slider" class="book-slider"></a>
-                <a href="#" id="book-slider" class="book-slider"></a>
-                <a href="#" id="book-slider" class="book-slider"></a>
-                <a href="#" id="book-slider" class="book-slider"></a>
-                <a href="#" id="book-slider" class="book-slider"></a>
-                <a href="#" id="book-slider" class="book-slider"></a> -->
-              </div>
-              <button id="next-btn" class="next-btn">&#8250;</button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="px-1">
-        <div class="container-main" style="height: 550px; margin-top: 70px">
-          <a href="" class="img-background-book"> </a>
-        </div>
-      </section>
-      <section class="px-1 grid-book-showcase-section">
-        <div
-          class="container-main container-book-showcase"
-          id="container-book-showcase"
-          style="height: 750px; margin-top: 70px"
-        >
-          <!-- <a href="#" class="book-1"></a>
-          <a href="#" class="book-2"></a>
-          <a href="#" class="book-3"></a>
-          <a href="#" class="book-4"></a>
-          <a href="#" class="book-5"></a>
-          <a href="#" class="book-6"></a>
-          <a href="#" class="book-7"></a> -->
-        </div>
-      </section>
-      <!-- Nuevos Lanzamientos para Jovenes Lectores -->
-      <section class="px-1">
-        <div
-          class="container-main"
-          style="
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start !important;
-            align-items: baseline;
-            margin-top: 70px;
-          "
-        >
-          <h2>Nuevos Lanzamientos para Jovenes Lectores</h2>
-          <div class="slider-bookshowcase-container">
-            <div class="slider-view-bookshowcase">
-              <button id="prev-btn-nuevos" class="prev-btn">&#8249;</button>
-              <div id="book-list-slider-nuevos" class="book-list-slider">
-                <!-- <a href="#" class="book-slider-nuevos"></a>
-                <a href="#" class="book-slider-nuevos"></a>
-                <a href="#" class="book-slider-nuevos"></a>
-                <a href="#" class="book-slider-nuevos"></a>
-                <a href="#" class="book-slider-nuevos"></a>
-                <a href="#" class="book-slider-nuevos"></a>
-                <a href="#" class="book-slider-nuevos"></a>
-                <a href="#" class="book-slider-nuevos"></a> -->
-              </div>
-              <button id="next-btn-nuevos" class="next-btn">&#8250;</button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- B&S Top 100 -->
-      <section class="px-1">
-        <div
-          class="container-main"
-          style="
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start !important;
-            align-items: baseline;
-            margin-top: 70px;
-          "
-        >
-          <h2>B&S Top 100</h2>
-          <div class="slider-bookshowcase-container">
-            <div class="slider-view-bookshowcase">
-              <button id="prev-btn-top100" class="prev-btn">&#8249;</button>
-              <div id="book-list-slider-top100" class="book-list-slider">
-                <!-- <a href="#" class="book-slider-top"></a>
-                <a href="#" class="book-slider-top"></a>
-                <a href="#" class="book-slider-top"></a>
-                <a href="#" class="book-slider-top"></a>
-                <a href="#" class="book-slider-top"></a>
-                <a href="#" class="book-slider-top"></a>
-                <a href="#" class="book-slider-top"></a> -->
-              </div>
-              <button id="next-btn-top100" class="next-btn">&#8250;</button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Blog -->
-      <section class="px-1">
-        <div
-          class="container-main"
-          style="
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start !important;
-            align-items: baseline;
-            margin-top: 70px;
-          "
-        >
-          <h2>Blog</h2>
-          <div class="slider-blog-container">
+          <div
+            style="
+              flex: 0.3;
+              min-width: 300px;
+              max-width: 500px;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+            "
+          >
+            <h2 style="margin-left: 5px">Información de contacto</h2>
             <div
-              class="slider-blog-view"
-              style="display: flex; flex-direction: column"
+              style="
+                width: 100%;
+                border: 1px solid rgb(209, 209, 209);
+                border-radius: 12px;
+                box-shadow: 10px 5px 5px rgba(10, 10, 10, 0.055);
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+              "
             >
-              <div id="blog-list-slider" class="blog-list-slider">
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
-                <a href="#" class="blog-slider">
-                  <h2
-                    style="
-                      position: absolute;
-                      bottom: 0;
-                      width: 100%;
-                      padding: 0 10px;
-                      left: 50%;
-                      transform: translateX(-50%);
-                    "
-                  >
-                    Blog
-                  </h2>
-                </a>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-start;
+                  gap: 7px;
+                "
+              >
+                <h4>
+                  <i
+                    style="margin-right: 16px; font-size: large"
+                    class="fa-solid fa-location-dot"
+                  ></i>
+                  Ubicación
+                </h4>
+                <p>Av. Cabildo 1100, Cdad. Autónoma de Buenos Aires</p>
               </div>
-              <div style="display: flex; gap: 1rem">
-                <button id="prev-btn-blog" class="prev-btn">&#8249;</button>
-                <div class="container-pagination"></div>
-                <button id="next-btn-blog" class="next-btn">&#8250;</button>
+              <div
+                style="width: 100%; height: 1px; background-color: #6666664d"
+              ></div>
+
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-start;
+                  gap: 7px;
+                "
+              >
+                <h4>
+                  <i
+                    style="margin-right: 16px; font-size: large"
+                    class="fa-solid fa-phone"
+                  ></i>
+                  Teléfono
+                </h4>
+                <p>+54 0351 4337074</p>
               </div>
+              <div
+                style="width: 100%; height: 1px; background-color: #6666664d"
+              ></div>
+
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-start;
+                  gap: 7px;
+                "
+              >
+                <h4>
+                  <i
+                    style="margin-right: 16px; font-size: large"
+                    class="fa-solid fa-envelope"
+                  ></i>
+                  Emails
+                </h4>
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                  "
+                >
+                  <p>
+                    Negocios:
+                    <a href="mailto: info@swordsandbooks.com"
+                      >info@swordsandbooks.com</a
+                    >
+                  </p>
+                  <p style="display: flex; gap: 5px">
+                    <span class="desktop-client-email"
+                      >Atención al cliente:
+                    </span>
+                    <span class="mobile-client-email" style="display: none"
+                      >Cliente:
+                    </span>
+                    <a href="mailto: atencion@swordsandbooks.com"
+                      >atencion@swordsandbooks.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+
+              <div
+                style="width: 100%; height: 1px; background-color: #6666664d"
+              ></div>
+
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-start;
+                  gap: 7px;
+                "
+              >
+                <h4>
+                  <i
+                    style="margin-right: 16px; font-size: large"
+                    class="fa-solid fa-user-clock"
+                  ></i>
+                  Horario de atención
+                </h4>
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                  "
+                >
+                  <p>Monday-Friday: 9:00 - 22:00</p>
+                  <p>Saturday-Sunday: 9:00 - 21:00</p>
+                </div>
+              </div>
+              <div
+                style="width: 100%; height: 1px; background-color: #6666664d"
+              ></div>
+
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-start;
+                  gap: 7px;
+                "
+              >
+                <h4>Podes encontrarnos en las redes sociales</h4>
+                <div class="social-media-footer social-media-contact">
+                  <div style="margin-top: 5px">
+                    <a href="https://www.instagram.com/"
+                      ><i class="fa-brands fa-instagram"></i
+                    ></a>
+                    <a href="https://www.facebook.com/"
+                      ><i class="fa-brands fa-facebook-f"></i
+                    ></a>
+                    <a href="https://www.linkedin.com/"
+                      ><i class="fa-brands fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="container-form-contact"
+            style="
+              flex: 1;
+              min-width: 300px;
+              max-width: 657px;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+            "
+          >
+            <h2 style="margin-left: 5px">Formulario de contacto</h2>
+            <div
+              style="
+                border: 1px solid rgb(209, 209, 209);
+                border-radius: 12px;
+                box-shadow: 10px 5px 5px rgba(10, 10, 10, 0.055);
+                padding: 20px;
+              "
+            >
+              <form action="">
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 32px;
+                    width: 100%;
+                  "
+                >
+                  <div
+                    style="display: flex; flex-wrap: nowrap; gap: 16px"
+                    class="container-first-info-form"
+                  >
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        align-items: flex-start;
+                        flex: 1;
+                      "
+                    >
+                      <label for="nombre">Tu nombre*</label>
+                      <input
+                        type="text"
+                        placeholder="Abc"
+                        style="flex: 1"
+                        required
+                      />
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        align-items: flex-start;
+                        flex: 1;
+                      "
+                    >
+                      <label for="email">Tu email*</label>
+                      <input
+                        type="email"
+                        placeholder="Abc@def.com"
+                        style="flex: 1"
+                        required
+                      />
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        align-items: flex-start;
+                        flex: 1;
+                      "
+                    >
+                      <label for="telefono">Tu teléfono*</label>
+                      <input
+                        type="text"
+                        placeholder="+54 9999 9999999"
+                        style="flex: 1"
+                        maxlength="20"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; gap: 16px">
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        align-items: flex-start !important;
+                        flex: 1;
+                      "
+                    >
+                      <label for="asunto">Asunto</label>
+                      <input
+                        type="text"
+                        placeholder="Este campo es opcional"
+                        style="flex: 1; min-width: 150px; width: 100%"
+                      />
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        align-items: flex-start;
+                        min-width: 150px;
+                        flex: 1;
+                      "
+                    >
+                      <label for="orden">Número ID de orden</label>
+                      <input
+                        type="number"
+                        placeholder="Este campo es opcional"
+                        style="flex: 1; min-width: 150px; width: 100%"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      flex-direction: column;
+                      gap: 5px;
+                      align-items: flex-start;
+                    "
+                  >
+                    <label for="mensaje">Mensaje</label>
+                    <textarea
+                      name=""
+                      id=""
+                      cols="30"
+                      rows="10"
+                      placeholder="Hola, quisiera preguntar acerca de..."
+                      style="width: 100%"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+                <div
+                  class="mt-1"
+                  style="display: flex; justify-content: flex-end"
+                >
+                  <button style="height: 50px; font-size: medium">
+                    Enviar mensaje
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </section>
-      <div id="output"></div>
     </main>
 
     <footer>
