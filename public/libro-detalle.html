@@ -72,16 +72,15 @@
             <i class="fa-solid fa-xmark"></i>
           </button>
           <h1>Iniciar sesión</h1>
-          <form
-            action="
-    "
-          >
+          <form action=" " id="loginForm">
             <div style="display: flex; flex-direction: column; gap: 1.25rem">
               <input
                 type="email"
                 placeholder="Ingrese su correo electrónico"
                 required
                 style="height: 2.75rem"
+                autocomplete="username"
+                id="loginEmail"
               />
               <div style="position: relative">
                 <input
@@ -90,6 +89,7 @@
                   required
                   style="height: 2.75rem; width: 100%"
                   id="passwordInput"
+                  autocomplete="current-password"
                 />
                 <button
                   type="button"
@@ -119,6 +119,8 @@
                 <a href="#">¿Olvidaste tu contraseña?</a>
               </div>
               <button
+                type="button"
+                id="loginButton"
                 style="
                   font-size: 16px;
                   text-transform: uppercase;
@@ -198,6 +200,7 @@
           <form
             action="
     "
+            id="registerForm"
           >
             <div style="display: flex; flex-direction: column; gap: 1.25rem">
               <input
@@ -205,12 +208,15 @@
                 placeholder="Ingrese su nombre y apellido"
                 required
                 style="height: 2.75rem"
+                id="registerName"
               />
               <input
                 type="email"
                 placeholder="Ingrese su correo electrónico"
                 required
                 style="height: 2.75rem"
+                autocomplete="username"
+                id="registerEmail"
               />
               <div style="position: relative">
                 <input
@@ -218,11 +224,12 @@
                   placeholder="Ingrese su contraseña"
                   required
                   style="height: 2.75rem; width: 100%"
-                  id="passwordInput"
+                  id="registerPassword"
+                  autocomplete="new-password"
                 />
                 <button
                   type="button"
-                  id="togglePasswordButton"
+                  id="toggleNewPasswordButton"
                   style="
                     position: absolute;
                     top: 50%;
@@ -242,11 +249,12 @@
                   placeholder="Confirme su contraseña"
                   required
                   style="height: 2.75rem; width: 100%"
-                  id="passwordInput"
+                  id="confirmPassword"
+                  autocomplete="new-password"
                 />
                 <button
                   type="button"
-                  id="togglePasswordButton"
+                  id="toggleConfirmPasswordButton"
                   style="
                     position: absolute;
                     top: 50%;
@@ -282,6 +290,7 @@
                 placeholder="Ingrese su respuesta"
                 required
                 style="height: 2.75rem"
+                id="securityAnswer"
               />
 
               <div style="display: flex; justify-content: center">
@@ -292,6 +301,7 @@
                     font-weight: semibold;
                     width: 50%;
                   "
+                  type="submit"
                 >
                   Crear cuenta
                 </button>
@@ -304,7 +314,7 @@
                     text-transform: uppercase;
                     font-weight: semibold;
                     width: 50%;
-                  "
+                  " class="cancel-register"
                 >
                   Cancelar
                 </button>
@@ -764,7 +774,7 @@
       </section>
     </main>
 
-  <footer>
+    <footer>
       <div class="container-main px-1">
         <div class="footer-content">
           <div class="logo-contact-footer">
@@ -788,7 +798,10 @@
               <h5>Navegación de la página</h5>
               <div>
                 <a href="./index.html">Inicio</a>
-                <a href="./categoria.html">Nuestros libros</a><a href="./contacto.html">Contacto</a><a href="">Locales</a> <a href="">Envios</a><a href="">Mi cuenta</a><a href="">Favotiros</a>
+                <a href="./categoria.html">Nuestros libros</a
+                ><a href="./contacto.html">Contacto</a><a href="">Locales</a>
+                <a href="">Envios</a><a href="">Mi cuenta</a
+                ><a href="">Favotiros</a>
               </div>
             </div>
             <div class="column-footer">
@@ -796,7 +809,8 @@
               <div>
                 <a href="">Encuentra nuestra tienda</a
                 ><a href="">Acerca de nosotros</a
-                ><a href="">Oportunidades laborales</a><a href="">Lee nuestro blog</a
+                ><a href="">Oportunidades laborales</a
+                ><a href="">Lee nuestro blog</a
                 ><a href="">Autores y editoriales</a>
               </div>
             </div>

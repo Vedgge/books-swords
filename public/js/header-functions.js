@@ -111,8 +111,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const passwordVisibilityButton = document.getElementById(
     "togglePasswordButton"
   );
+  const passwordConfirmVisibilityButton = document.getElementById(
+    "toggleConfirmPasswordButton"
+  );
+
   const closeButtonLogin = document.getElementById("close-button-login");
   const closeButtonRegister = document.getElementById("close-button-register");
+  const cancelButtonRegister = document.getElementById(
+    "cancel-register-button"
+  );
   const toggleRegisterButton = document.getElementById(
     "toggle-register-button"
   );
@@ -150,6 +157,11 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.style.display = "none";
   });
 
+  cancelButtonRegister.addEventListener("click", function () {
+    registerContainer.style.display = "none";
+    overlay.style.display = "none";
+  });
+
   toggleRegisterButton.addEventListener("click", function () {
     console.log("toggle register clicked");
     if ((loginContainer.style.display = "block")) {
@@ -172,10 +184,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   passwordVisibilityButton.addEventListener("click", togglePasswordVisibility);
+  passwordConfirmVisibilityButton.addEventListener("click", togglePasswordVisibility)
 
   function togglePasswordVisibility() {
     let passwordInput = document.getElementById("passwordInput");
+    let confirmPassword = document.getElementById("confirmPassword");
     let toggleIcon = document.getElementById("toggleIcon");
+    console.log(passwordInput.type);
 
     if (passwordInput.type === "password") {
       passwordInput.type = "text";
@@ -186,5 +201,15 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleIcon.classList.remove("fa-eye-slash");
       toggleIcon.classList.add("fa-eye");
     }
+
+    if (confirmPassword.type === "password") {
+      confirmPassword.type = "text";
+      toggleIcon.classList.remove("fa-eye");
+      toggleIcon.classList.add("fa-eye-slash");
+    } else {
+      confirmPassword.type = "password";
+      toggleIcon.classList.remove("fa-eye-slash");
+      toggleIcon.classList.add("fa-eye");
+    }
   }
-})
+});

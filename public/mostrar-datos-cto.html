@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mostrar Datos</title>
+  </head>
+  <body>
+    <h1>Datos del Formulario enviados correctamente</h1>
+    <div id="datos-container"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const params = new URLSearchParams(window.location.search);
+        const nombre = params.get("contactName");
+        const email = params.get("contactEmail");
+        const telefono = params.get("contactPhone");
+        const asunto = params.get("contactSubject");
+        const mensaje = params.get("contactMessage");
+
+        const datosContainer = document.getElementById("datos-container");
+
+        const nombreElement = document.createElement("p");
+        nombreElement.textContent = `Nombre: ${nombre}`;
+        datosContainer.appendChild(nombreElement);
+
+        const emailElement = document.createElement("p");
+        emailElement.textContent = `Email: ${email}`;
+        datosContainer.appendChild(emailElement);
+
+        const telefonoElement = document.createElement("p");
+        telefonoElement.textContent = `Teléfono: ${telefono}`;
+        datosContainer.appendChild(telefonoElement);
+
+        const asuntoElement = document.createElement("p");
+        asuntoElement.textContent = `Asunto: ${asunto}`;
+        datosContainer.appendChild(asuntoElement);
+
+        const mensajeElement = document.createElement("p");
+        mensajeElement.textContent = `Mensaje: ${mensaje}`;
+        datosContainer.appendChild(mensajeElement);
+      });
+    </script>
+
+    <a href="index.html">Volver al inicio</a>
+  </body>
+</html>
