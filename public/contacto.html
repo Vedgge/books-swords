@@ -116,8 +116,6 @@
           </button>
           <h1>Iniciar sesión</h1>
           <form
-            action="
-    "
             id="loginForm"
           >
             <div style="display: flex; flex-direction: column; gap: 1.25rem">
@@ -137,6 +135,7 @@
                   style="height: 2.75rem; width: 100%"
                   id="passwordInput"
                   autocomplete="current-password"
+                  minlength="6"
                 />
                 <button
                   type="button"
@@ -351,22 +350,23 @@
                 >
                   Crear cuenta
                 </button>
-                <button
-                  style="
-                    background: transparent;
-                    border: none;
-                    color: #000000;
-                    font-size: 16px;
-                    text-transform: uppercase;
-                    font-weight: semibold;
-                    width: 50%;
-                  "
-                >
-                  Cancelar
-                </button>
               </div>
             </div>
           </form>
+          <button
+            style="
+              background: transparent;
+              border: none;
+              color: #000000;
+              font-size: 16px;
+              text-transform: uppercase;
+              font-weight: semibold;
+              width: 50%;
+            "
+            id="cancel-register-button"
+          >
+            Cancelar
+          </button>
           <div
             style="
               display: flex;

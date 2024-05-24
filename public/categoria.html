@@ -6,12 +6,12 @@
     <title>Busqueda de libros</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/public/css/styles.css" />
-    <link rel="stylesheet" href="/public/css/categoria.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/categoria.css" />
 
     <!-- Scripts -->
     <script src="js/books-data.js" defer></script>
-    <script src="/public/js/book-filter-functions.js" type="module"></script>
+    <script src="js/book-filter-functions.js" type="module"></script>
     <script
       src="https://kit.fontawesome.com/1858177878.js"
       crossorigin="anonymous"
@@ -76,11 +76,7 @@
             <i class="fa-solid fa-xmark"></i>
           </button>
           <h1>Iniciar sesión</h1>
-          <form
-            action="
-    "
-            id="loginForm"
-          >
+          <form id="loginForm">
             <div style="display: flex; flex-direction: column; gap: 1.25rem">
               <input
                 type="email"
@@ -98,6 +94,7 @@
                   style="height: 2.75rem; width: 100%"
                   id="passwordInput"
                   autocomplete="current-password"
+                  minlength="6"
                 />
                 <button
                   type="button"
@@ -312,22 +309,23 @@
                 >
                   Crear cuenta
                 </button>
-                <button
-                  style="
-                    background: transparent;
-                    border: none;
-                    color: #000000;
-                    font-size: 16px;
-                    text-transform: uppercase;
-                    font-weight: semibold;
-                    width: 50%;
-                  "
-                >
-                  Cancelar
-                </button>
               </div>
             </div>
           </form>
+          <button
+            style="
+              background: transparent;
+              border: none;
+              color: #000000;
+              font-size: 16px;
+              text-transform: uppercase;
+              font-weight: semibold;
+              width: 50%;
+            "
+            id="cancel-register-button"
+          >
+            Cancelar
+          </button>
           <div
             style="
               display: flex;
