@@ -1,4 +1,4 @@
-# Books & Swrods
+# Books & Swords
  
 Este repositorio contiene el código fuente de la página web de Books & Swords, donde podrás registrarte y comprar los mejores libros al mejor precio del mercado.
 Su fecha de inicio fue alrededor de Abril y forma parte de un Trabajo Práctico Obligatorio para el curso **Full Stack 2024** del programa [codo a codo](https://aulasvirtuales.edu.ar)
